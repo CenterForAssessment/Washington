@@ -10,7 +10,7 @@ library(SGP)
 setwd("~/CENTER/SGP/Washington")
 
 ###	Read in and clean the Base data file
-Washington_Data_LONG <- read.delim("Data/Base_Files/3LDB_finalRankedGM.txt", comment.char="\"")
+Washington_Data_LONG <- read.delim("Data/Base_Files/3LDB_finalRankedGM.txt", comment.char='\"')
 Washington_Data_LONG$SSID <- factor(Washington_Data_LONG$SSID)
 
 save(Washington_Data_LONG, file="Data/Base_Files/Washington_Data_LONG-BASE.Rdata", compress=TRUE)

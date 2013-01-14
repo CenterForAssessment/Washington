@@ -7,13 +7,14 @@
 library(SGP)
 
 # Set SGP file as working directory
-setwd("~/CENTER/SGP/Washington")
+setwd("/media/Data/SGP/Washington")
 
 ###	Read in and clean the Base data file
-Washington_Data_LONG <- read.delim("Data/Base_Files/3LDB_finalRankedGM.txt", comment.char='\"')
-Washington_Data_LONG$SSID <- factor(Washington_Data_LONG$SSID)
+Washington_Data_LONG <- rbind.fill(
+	read.delim("Data/Base_Files/GrowthModelAssessmentData2005_2011_Final_1.3.12.txt", comment.char="\""),
+	read.delim("Data/Base_Files/GrowthModelAssessmentData2012_Final_1.3.12.txt", comment.char="\""))
 
-save(Washington_Data_LONG, file="Data/Base_Files/Washington_Data_LONG-BASE.Rdata", compress=TRUE)
+save(Washington_Data_LONG, file="Data/Base_Files/Washington_Data_LONG-2012_BASE.Rdata", compress=TRUE)
 
 ###
 ###  Clean up data
@@ -21,7 +22,7 @@ save(Washington_Data_LONG, file="Data/Base_Files/Washington_Data_LONG-BASE.Rdata
 
 ###  Remove extraneous variables:
 
-Washington_Data_LONG$RecordID <- NULL
+# Washington_Data_LONG$RecordID <- NULL #  Seems like something that might be useful to keep (?)
 Washington_Data_LONG$StudentMI <- NULL
 Washington_Data_LONG$GradReqYear <- NULL
 Washington_Data_LONG$ExpectedGradYear <- NULL
@@ -32,39 +33,12 @@ Washington_Data_LONG$AYPPortCESchool <- NULL
 Washington_Data_LONG$AYPPortCEDistrict <- NULL
 
 
-###  Fix VALID_CASE variable
-Washington_Data_LONG$ValidCase <- factor(2, levels=1:2, labels= c("INVALID_CASE", "VALID_CASE"))
-
 ###  Year variable contains minus sign ('2005 - 2006')
-levels(Washington_Data_LONG$SchoolYear) <- c("2005_2006", "2006_2007", "2007_2008", "2008_2009", "2009_2010", "2010_2011")
+levels(Washington_Data_LONG$SchoolYear) <- gsub("-", "_", levels(Washington_Data_LONG$SchoolYear))
 
 ###  Fix the CONTENT_AREA Variable
-
-#  This may not be adequate.  EOC courses include Algebra, Integrated Math, Make Up Math with both Levels 1 & 2
-levels(Washington_Data_LONG$Subject) <- c(NA, "EOC_MATHEMATICS_1", "EOC_MATHEMATICS_2", "MATHEMATICS", "READING", "SCIENCE", "WRITING", "EOC_MATH_MAKEUP_1")
-Washington_Data_LONG$ValidCase[is.na(Washington_Data_LONG$Subject)] <- 'INVALID_CASE'
-
-Washington_Data_LONG$Subject[Washington_Data_LONG$TestType %in% c("MU1", "MU1B")] <- 'EOC_MATH_MAKEUP_1'
-
-#  INVALIDate WASL and MSP Subjects "out of grade"
-
-Washington_Data_LONG$ValidCase[Washington_Data_LONG$Subject == "MATHEMATICS" & !Washington_Data_LONG$ReportingGrade %in% c(3:8,10)] <- 'INVALID_CASE'
-Washington_Data_LONG$ValidCase[Washington_Data_LONG$Subject == "READING" & !Washington_Data_LONG$ReportingGrade %in% c(3:8,10)] <- 'INVALID_CASE'
-Washington_Data_LONG$ValidCase[Washington_Data_LONG$Subject == "SCIENCE" & !Washington_Data_LONG$ReportingGrade %in% c(5,8,10)] <- 'INVALID_CASE'
-Washington_Data_LONG$ValidCase[Washington_Data_LONG$Subject == "WRITING" & !Washington_Data_LONG$ReportingGrade %in% c(4,7,10)] <- 'INVALID_CASE'
-
-Washington_Data_LONG$ValidCase[Washington_Data_LONG$Subject == "EOC_MATHEMATICS_1" & !Washington_Data_LONG$ReportingGrade %in% c(7:10)] <- 'INVALID_CASE'
-Washington_Data_LONG$ValidCase[Washington_Data_LONG$Subject == "EOC_MATHEMATICS_2" & !Washington_Data_LONG$ReportingGrade %in% c(8:10)] <- 'INVALID_CASE'
-Washington_Data_LONG$ValidCase[Washington_Data_LONG$Subject == "EOC_MATH_MAKEUP_1" & !Washington_Data_LONG$ReportingGrade == 10] <- 'INVALID_CASE'
-
-
-#  http://www.k12.wa.us/assessment/pubdocs/WCAP2011SpringAdministrationTechnicalReport.pdf 
-#  Pg. 6:  The Developmentally Appropriate Proficiency Exam (DAPE) and WCAP Basic are alternatives to regular WCAP administration for eligible students.
-#  The WCAP Basic, previously called the WASL-Basic or WASL-MO (or WASL-Modified), is intended for students who take the WCAP test at the grade level
-#  but the passing score is adjusted by the student’s IEP teams from Proficient (Level 3) to Basic (Level 2).
-
-#Washington_Data_LONG$ValidCase[Washington_Data_LONG$TestType %in% c("WABA", "DAPE")] <- 'INVALID_CASE'
-Washington_Data_LONG$ValidCase[Washington_Data_LONG$TestType %in% "DAPE"] <- 'INVALID_CASE'
+#  Note: EOC courses include Algebra, Integrated Math, Make Up Math with both Levels 1 & 2
+levels(Washington_Data_LONG$Subject) <- c(NA, "EOC_MATHEMATICS_1", "EOC_MATHEMATICS_2", "MATHEMATICS", "READING", "SCIENCE", "WRITING", "EOC_BIOLOGY")
 
 
 ###  Clean up the DEMOGRAPHIC factor levels:
@@ -75,7 +49,7 @@ levels(Washington_Data_LONG$Private) <- c('Private: No', 'Private: No', 'Private
 levels(Washington_Data_LONG$MetStandard) <- c(NA, 'Met Standard: No', 'Met Standard: No', 'Met Standard: Yes', 'Met Standard: Yes')
 Washington_Data_LONG$EthRace <- factor(Washington_Data_LONG$EthRace, levels=1:8, labels=c("American Indian or Alaskan Native", "Asian", 
 	"Black or African American", "Hispanic or Latino", "White", "Hawaiian of Pacific Islander", "Two or More Races", "Not Provided"), ordered=TRUE)
-levels(Washington_Data_LONG$Migrant) <- c('Migrant: No', 'Migrant: No', 'Private: Yes')
+levels(Washington_Data_LONG$Migrant) <- c('Migrant: No', 'Migrant: No', 'Migrant: Yes')
 levels(Washington_Data_LONG$Homeless) <- c('Homeless: No', 'Homeless: No', 'Homeless: Yes')
 levels(Washington_Data_LONG$Gifted) <- c('Gifted and Talented Program: No', 'Gifted and Talented Program: No', 'Gifted and Talented Program: Yes')
 levels(Washington_Data_LONG$Bilingual) <- c('Bilingual: No', 'Bilingual: No', 'Bilingual: Yes')
@@ -85,9 +59,9 @@ levels(Washington_Data_LONG$SpecEd) <- c('IEP: No', 'IEP: No', 'IEP: Yes')
          
 ###  Clean up the Achievement Level variable
 
-levels(Washington_Data_LONG$LevelScore) <- c(NA, "L1", "L2", "L3", "L4") # Make "" level NA First before converting it.
+levels(Washington_Data_LONG$LevelScore) <- c(NA, "L2", "L1", "L2", "L3", "L4")  # BA = "L2: Basic"
 Washington_Data_LONG$LevelScore <- as.numeric(Washington_Data_LONG$LevelScore)
-Washington_Data_LONG$LevelScore <- factor(Washington_Data_LONG$LevelScore, levels = 1:4,
+Washington_Data_LONG$LevelScore <- factor(Washington_Data_LONG$LevelScore, levels = c(2,1,3,4),
 	labels =c("L1: Below Basic", "L2: Basic", "L3: Proficient", "L4: Advanced"), ordered=TRUE)
 
 
@@ -99,25 +73,47 @@ levels(Washington_Data_LONG$AYPMathCESchool) <- c('Enrolled School: No', 'Enroll
 levels(Washington_Data_LONG$AYPReadCEDistrict) <- c('Enrolled District: No', 'Enrolled District: No', 'Enrolled District: Yes')
 levels(Washington_Data_LONG$AYPMathCEDistrict) <- c('Enrolled District: No', 'Enrolled District: No', 'Enrolled District: Yes')
 
-# SCHOOL
+levels(Washington_Data_LONG$AYPEOCMathCEDistrict) <- c(NA, 'Enrolled District: No', 'Enrolled District: Yes')
+levels(Washington_Data_LONG$AYPEOCMathCESchool) <- c(NA, 'Enrolled School: No', 'Enrolled School: Yes')
+
+
+## SCHOOL
 Washington_Data_LONG$SCHOOL_ENROLLMENT_STATUS <- Washington_Data_LONG$AYPMathCESchool
 Washington_Data_LONG$SCHOOL_ENROLLMENT_STATUS[Washington_Data_LONG$Subject %in% 'READING' & !is.na(Washington_Data_LONG$AYPReadCESchool)] <- 
-   [Washington_Data_LONG$Subject %in% 'READING' & !is.na(Washington_Data_LONG$AYPReadCESchool)]
-###  Per phone conversation 7/2/12, Science CE determined by Math and Writing CE determined by Read:
+   as.character(Washington_Data_LONG$AYPReadCESchool[Washington_Data_LONG$Subject %in% 'READING' & !is.na(Washington_Data_LONG$AYPReadCESchool)])
+
+#  Per phone conversation 7/2/12, Science CE determined by Math and Writing CE determined by Read:
 Washington_Data_LONG$SCHOOL_ENROLLMENT_STATUS[Washington_Data_LONG$Subject %in% 'WRITING' & !is.na(Washington_Data_LONG$AYPReadCESchool)] <- 
    as.character(Washington_Data_LONG$AYPReadCESchool[Washington_Data_LONG$Subject %in% 'WRITING' & !is.na(Washington_Data_LONG$AYPReadCESchool)])
 
-# DISTRICT
+#  Per Krissy's email 1/3/13, EOC indicator added for Math 1 & 2.  Use for Bio as well:
+eoc.subj <- c("EOC_MATHEMATICS_1", "EOC_MATHEMATICS_2", "EOC_BIOLOGY")
+Washington_Data_LONG$SCHOOL_ENROLLMENT_STATUS[Washington_Data_LONG$Subject %in% eoc.subj & !is.na(Washington_Data_LONG$AYPEOCMathCESchool)] <- 
+   as.character(Washington_Data_LONG$AYPEOCMathCESchool[Washington_Data_LONG$Subject %in% eoc.subj & !is.na(Washington_Data_LONG$AYPEOCMathCESchool)])
+
+## DISTRICT
 Washington_Data_LONG$DISTRICT_ENROLLMENT_STATUS <- Washington_Data_LONG$AYPMathCEDistrict
 Washington_Data_LONG$DISTRICT_ENROLLMENT_STATUS[Washington_Data_LONG$Subject %in% 'READING' & !is.na(Washington_Data_LONG$AYPReadCEDistrict)] <- 
-   Washington_Data_LONG$AYPReadCEDistrict[Washington_Data_LONG$Subject %in% 'READING' & !is.na(Washington_Data_LONG$AYPReadCEDistrict)]
-###  Per phone conversation 7/2/12, Science CE determined by Math and Writing CE determined by Read:
+   as.character(Washington_Data_LONG$AYPReadCEDistrict[Washington_Data_LONG$Subject %in% 'READING' & !is.na(Washington_Data_LONG$AYPReadCEDistrict)])
+
+#  Per phone conversation 7/2/12, Science CE determined by Math and Writing CE determined by Read:
 Washington_Data_LONG$DISTRICT_ENROLLMENT_STATUS[Washington_Data_LONG$Subject %in% 'WRITING' & !is.na(Washington_Data_LONG$AYPReadCEDistrict)] <- 
    as.character(Washington_Data_LONG$AYPReadCEDistrict[Washington_Data_LONG$Subject %in% 'WRITING' & !is.na(Washington_Data_LONG$AYPReadCEDistrict)])
 
+#  Per Krissy's email 1/3/13, EOC indicator added for Math 1 & 2.  Use for Bio as well:
+Washington_Data_LONG$DISTRICT_ENROLLMENT_STATUS[Washington_Data_LONG$Subject %in% eoc.subj & !is.na(Washington_Data_LONG$AYPEOCMathCEDistrict)] <- 
+   as.character(Washington_Data_LONG$AYPEOCMathCEDistrict[Washington_Data_LONG$Subject %in% eoc.subj & !is.na(Washington_Data_LONG$AYPEOCMathCEDistrict)])
+
+#  Per Krissy's email 1/3/13.  Note there is no 'N' included in data.
+Washington_Data_LONG$DISTRICT_ENROLLMENT_STATUS[Washington_Data_LONG$SchoolType %in% c('I', 'J', 'T', 'X', 'Y', '5', 'V', 'N')] <- 'Enrolled District: No'
+
+##  STATE - all enrolled ...
 Washington_Data_LONG$STATE_ENROLLMENT_STATUS <- factor(1, levels=0:1, labels=c('Enrolled State: No', 'Enrolled State: Yes'))
 
+
 ###  Clean up names variables:
+
+#  'capwords' function is available in the SGP package, but there are some "special words" that we want to add, so use this version here:
 
 	capwords <- function(x) {
 		special.words <- c("ELA", "EMH", "II", "III", "IV", "SES", "IEP", "ELL", "HS", "MS", "EL", "ES", "LA", "MAD", "PS", "SD", "US")
@@ -141,89 +137,115 @@ Washington_Data_LONG$STATE_ENROLLMENT_STATUS <- factor(1, levels=0:1, labels=c('
 
 s.names <- capwords(as.character(levels(Washington_Data_LONG$SchoolName)))
 levels(Washington_Data_LONG$SchoolName) <- s.names
-levels(Washington_Data_LONG$SchoolName)[1] <- NA # 5,302 == "UNKNOWN SCHOOL" - c(1, 5302) or c(1, 3583) after capwords.  Just leave for now...
+levels(Washington_Data_LONG$SchoolName)[c(1, 3611)] <- NA # 3,611 = "UNKNOWN SCHOOL"
 
 d.names <- capwords(as.character(levels(Washington_Data_LONG$DistrictName)))
 levels(Washington_Data_LONG$DistrictName) <- d.names
+levels(Washington_Data_LONG$DistrictName)[grep("clark)sd", levels(Washington_Data_LONG$DistrictName))] <- "Evergreen (Clark) SD"
+levels(Washington_Data_LONG$DistrictName)[grep("walla)sd", levels(Washington_Data_LONG$DistrictName))] <- "Columbia (Walla) SD"
+levels(Washington_Data_LONG$DistrictName)[grep("spk)sd", levels(Washington_Data_LONG$DistrictName))] <- c("East Valley (Spk) SD", "West Vly (Spk) SD")
+levels(Washington_Data_LONG$DistrictName)[grep("yak)sd", levels(Washington_Data_LONG$DistrictName))] <- c("East Valley (Yak) SD", "West Vly (Yak) SD")
+levels(Washington_Data_LONG$DistrictName)[grep("stev)sd", levels(Washington_Data_LONG$DistrictName))] <- c("Columbia (Stev) SD", "Evergreen (Stev) SD")
 
-
+levels(Washington_Data_LONG$StudentFirstName)[1:5] <- NA
 f.names <- capwords(as.character(levels(Washington_Data_LONG$StudentFirstName)))
 levels(Washington_Data_LONG$StudentFirstName) <- f.names
-levels(Washington_Data_LONG$StudentFirstName)[1:4] <- NA
 
 l.names <- capwords(as.character(levels(Washington_Data_LONG$StudentLastName)))
 levels(Washington_Data_LONG$StudentLastName) <- l.names
 
 
-###  Create Data table and (temporarily) rename:
+###  Create Data table:
 Washington_Data_LONG <- data.table(Washington_Data_LONG)
 
-SGPstateData[["WA"]][["Variable_Name_Lookup"]] <- read.csv("/home/avi/Dropbox/stateData/Variable_Name_Lookup/WA_Variable_Name_Lookup.csv", colClasses=c(rep("character",4), "logical"))
+##
+##  Identify VALID_CASEs
+##
+
+#  Set variable classes to work with data.table keys
+Washington_Data_LONG$SSID <- as.character(Washington_Data_LONG$SSID)
+Washington_Data_LONG$Subject <- as.character(Washington_Data_LONG$Subject)
+
+#  Fix VALID_CASE variable.  Need to NULL it first for some reason (?)
+Washington_Data_LONG$ValidCase <- NULL
+Washington_Data_LONG$ValidCase <- "VALID_CASE"
+
+#  INVALIDate WASL and MSP Subjects "out of grade"
+#  Invalidate grade 10(+) from Math.  Also 10th grade Science now Biology in 2012, but there are a handful of SCIENCE records with 10th grade indicated.
+Washington_Data_LONG$ValidCase[Washington_Data_LONG$Subject == "MATHEMATICS" & !Washington_Data_LONG$ReportingGrade %in% c(3:8)] <- 'INVALID_CASE'
+Washington_Data_LONG$ValidCase[Washington_Data_LONG$Subject == "READING" & !Washington_Data_LONG$ReportingGrade %in% c(3:8,10)] <- 'INVALID_CASE'
+Washington_Data_LONG$ValidCase[Washington_Data_LONG$Subject == "WRITING" & !Washington_Data_LONG$ReportingGrade %in% c(4,7,10)] <- 'INVALID_CASE'
+Washington_Data_LONG$ValidCase[Washington_Data_LONG$Subject == "SCIENCE" & !Washington_Data_LONG$ReportingGrade %in% c(5,8,10)] <- 'INVALID_CASE'
+Washington_Data_LONG$ValidCase[Washington_Data_LONG$Subject == "SCIENCE" & Washington_Data_LONG$ReportingGrade > 8 & Washington_Data_LONG$SchoolYear== '2011_2012'] <- 'INVALID_CASE'
+
+#  Only use spring administrations:
+Washington_Data_LONG$ValidCase[Washington_Data_LONG$Administration=="August"] <- "INVALID_CASE"
+
+#  Invalidate the NA scores and IDs
+Washington_Data_LONG$ValidCase[is.na(Washington_Data_LONG$SSID)] <- 'INVALID_CASE'
+Washington_Data_LONG$ValidCase[is.na(Washington_Data_LONG$ScaleScore)] <- 'INVALID_CASE'
+
+#  Invalidate cases based on Krissy's email 10/12/2012 & 1/03/13.  Also invalidate PORT (portfolio - not a scale score)
+Washington_Data_LONG$ValidCase[Washington_Data_LONG$TestType %in% c('DAPE', 'MU1', 'MU1B', 'MU2', 'MU2B', 'RE1', 'RE1B', 'RE2', 'RE2B', 'PORT')] <- 'INVALID_CASE'
+Washington_Data_LONG$ValidCase[Washington_Data_LONG$HomeBased == 'Home Based: Yes'] <- "INVALID_CASE"
+Washington_Data_LONG$ValidCase[Washington_Data_LONG$Private == 'Private: Yes'] <- "INVALID_CASE"
+
+#  Create the catch all "EOCT" grade for "Out-of-grade" (or atypical grade) students taking EOC Subjects.  Do this before duplicate invalidation
+Washington_Data_LONG$GRADE_REPORTED <- Washington_Data_LONG$ReportingGrade
+Washington_Data_LONG$ReportingGrade[Washington_Data_LONG$Subject %in% c("EOC_BIOLOGY", "EOC_MATHEMATICS_1", "EOC_MATHEMATICS_2")] <- "EOCT"
+   
+  ## duplicate cases
+
+	#  Pure duplicates
+	setkeyv(Washington_Data_LONG, c("ValidCase", "Subject", "TestType", "SchoolYear", "ReportingGrade", "SSID", "ScaleScore")) 
+	Washington_Data_LONG$ValidCase[which(duplicated(Washington_Data_LONG))-1] <- "INVALID_CASE"
+
+	#  Different scores, but same subject, test type, grade, etc. - take highest score
+	setkeyv(Washington_Data_LONG, c("ValidCase", "Subject", "TestType", "SchoolYear", "ReportingGrade", "SSID", "ScaleScore")) 
+	setkeyv(Washington_Data_LONG, c("ValidCase", "Subject", "TestType", "SchoolYear", "ReportingGrade", "SSID")) 
+	Washington_Data_LONG$ValidCase[which(duplicated(Washington_Data_LONG))-1] <- "INVALID_CASE"
+
+	#  Different scores, but same subject and grade, etc. - take highest score
+	setkeyv(Washington_Data_LONG, c("ValidCase", "Subject", "SchoolYear", "ReportingGrade", "SSID", "ScaleScore"))
+	setkeyv(Washington_Data_LONG, c("ValidCase", "Subject", "SchoolYear", "ReportingGrade", "SSID"))
+	Washington_Data_LONG$ValidCase[which(duplicated(Washington_Data_LONG))-1] <- "INVALID_CASE"
+
+
+	#  Final duplicate case removal without grade as a factor.  Again take the high score if duplicate case
+	setkeyv(Washington_Data_LONG, c("ValidCase", "Subject", "SchoolYear", "SSID", "ScaleScore"))
+	setkeyv(Washington_Data_LONG, c("ValidCase", "Subject", "SchoolYear", "SSID"))
+	Washington_Data_LONG$ValidCase[which(duplicated(Washington_Data_LONG))-1] <- "INVALID_CASE"
+
+	#  Remove EOC cases that are repeats and create the TEST_REPEAT variable to keep track of these cases.
+	setkeyv(Washington_Data_LONG, c("ValidCase", "Subject", "SSID"))
+  Washington_Data_LONG$TEST_REPEAT <- FALSE
+  Washington_Data_LONG$TEST_REPEAT[which(duplicated(Washington_Data_LONG) & Washington_Data_LONG$Subject %in% eoc.subj)] <- TRUE
+  Washington_Data_LONG$ValidCase[which(duplicated(Washington_Data_LONG) & Washington_Data_LONG$Subject %in% eoc.subj)] <- "INVALID_CASE"
+
+###
+###   Save Results
+###
+
+save(Washington_Data_LONG, file="Data/Washington_Data_LONG.Rdata", compress="bzip2")
+
+###
+###   prepareSGP
+###
+
+Washington_SGP <- prepareSGP(Washington_Data_LONG)
+
+save(Washington_SGP, file="Data/Washington_SGP.Rdata")
+
+
+###
+###  Knots and Boundaries for EOCT Subjects (at least EOC Math 1 will be used as a prior):
+###
+
+#  Change names and set key:
 
 eval(parse(text=paste("setnames(Washington_Data_LONG, c(", 
 	paste("'", paste(SGPstateData[["WA"]][["Variable_Name_Lookup"]][["names.provided"]], collapse="','"), "'", sep=""), "),", "c(",
 	paste("'", paste(SGPstateData[["WA"]][["Variable_Name_Lookup"]][["names.sgp"]], collapse="','"), "'", sep=""), "))")))
-
-
-##
-##  Identify VALID_CASE  ::  duplicate cases
-##
-
-	#  These are ALL NA's (ALL NA scores, content area, and other indicators), and already INVALID.
-	# setkeyv(Washington_Data_LONG, c("VALID_CASE", "CONTENT_AREA", "YEAR", "GRADE", "Administration", "ID"))
-	# dups <- Washington_Data_LONG[sort(unique(c(which(duplicated(Washington_Data_LONG))-1, which(duplicated(Washington_Data_LONG))))),]
-	# Washington_Data_LONG[['VALID_CASE']][which(duplicated(Washington_Data_LONG))-1] <- "INVALID_CASE"
-	
-	#  This is strictly High School students (grade==9:12)  in MATH READING and WRITING (WASL or HSPE mainly)
-	#  All the VALID_CASES are August and Spring repeat administrations.  Use the Spring for consistency 
-	#  Also August may be a "Makeup" from last year (Per Call 7/2).  See if these students were missing in prior year.
-	Washington_Data_LONG$YEAR_INT <- as.integer(Washington_Data_LONG$YEAR)+2005
-	setkeyv(Washington_Data_LONG, c("ID", "CONTENT_AREA", "YEAR_INT", "VALID_CASE"))	
-	Washington_Data_LONG[['YEAR_PRIOR']]<- Washington_Data_LONG[SJ(ID, CONTENT_AREA, YEAR_INT-1, "VALID_CASE"), mult="last"][,YEAR]
-	Washington_Data_LONG[['YEAR_2YR_PRIOR']]<- Washington_Data_LONG[SJ(ID, CONTENT_AREA, YEAR_INT-2, "VALID_CASE"), mult="last"][,YEAR]
-	#  The vast majority are missing a prior year score (not surprising for 10th graders) AND 2 year prior (more important overall).
-	#  Hard to say what that August test was (out of grade?  8th grade or 10th grade makeup?). Probably should INVALIDate all Augusts...
-	setkeyv(Washington_Data_LONG, c("VALID_CASE", "CONTENT_AREA", "TestType", "YEAR", "GRADE", "ID", "Administration")) 
-	setkeyv(Washington_Data_LONG, c("VALID_CASE", "CONTENT_AREA", "TestType", "YEAR", "GRADE", "ID")) #"Administration", 
-	dups <- Washington_Data_LONG[sort(unique(c(which(duplicated(Washington_Data_LONG))-1, which(duplicated(Washington_Data_LONG))))),]
-	setkeyv(dups, c("VALID_CASE", "CONTENT_AREA", "TestType", "YEAR", "ID"))
-	summary(dups[VALID_CASE=="VALID_CASE"])
-
-	Washington_Data_LONG[['VALID_CASE']][which(duplicated(Washington_Data_LONG))-1] <- "INVALID_CASE"
-
-
-	#  The VALID cases here are all students who took the BASIC test August admin period and another in Spring.  Take the Spring admin again.
-	setkeyv(Washington_Data_LONG, c("VALID_CASE", "CONTENT_AREA", "YEAR", "GRADE", "ID", "Administration"))
-	setkeyv(Washington_Data_LONG, c("VALID_CASE", "CONTENT_AREA", "YEAR", "GRADE", "ID"))
-	dups <- Washington_Data_LONG[sort(unique(c(which(duplicated(Washington_Data_LONG))-1, which(duplicated(Washington_Data_LONG))))),]
-	setkeyv(dups, c("VALID_CASE", "CONTENT_AREA", "YEAR", "ID"))
-	summary(dups[VALID_CASE=="VALID_CASE"])
-	#  All the VALID_CASES are August and Spring repeat administrations.  Use the Spring for consistency
-	Washington_Data_LONG[['VALID_CASE']][which(duplicated(Washington_Data_LONG))-1] <- "INVALID_CASE"
-
-
-	#  These are students who again took test in both admin periods, but labeled as different GRADES in each one (eg 9 in August, 10 in Spring).
-	#  Again go with Spring for consistency...
-	setkeyv(Washington_Data_LONG, c("VALID_CASE", "CONTENT_AREA", "YEAR", "ID", "Administration"))
-	setkeyv(Washington_Data_LONG, c("VALID_CASE", "CONTENT_AREA", "YEAR", "ID"))
-	dups <- Washington_Data_LONG[sort(unique(c(which(duplicated(Washington_Data_LONG))-1, which(duplicated(Washington_Data_LONG))))),]
-	setkeyv(dups, c("VALID_CASE", "CONTENT_AREA", "YEAR", "ID"))
-	summary(dups[VALID_CASE=="VALID_CASE"])
-	Washington_Data_LONG[['VALID_CASE']][which(duplicated(Washington_Data_LONG))-1] <- "INVALID_CASE"
-
-	#  There are still a good number of AUGUST administration cases that are VALID.  What should we do about these?
-	#  Mainly HSPE and WASL tests for 10th graders (and a few others here and there - all in High School though).
-	summary(Washington_Data_LONG[Washington_Data_LONG$Administration=="August" & Washington_Data_LONG$VALID_CASE=="VALID_CASE",])
-
-	#  Only a few thousand have a prior year score (or 2 year prior), so best just to eliminate these and only use the spring administration:
-	Washington_Data_LONG[['VALID_CASE']][Washington_Data_LONG$Administration=="August"] <- "INVALID_CASE"
-		
-	
-###
-###  Knots and Boundaries for Subjects that will be used as priors:
-###
-
-Washington_Data_LONG[['VALID_CASE']][is.na(Washington_Data_LONG[['SCALE_SCORE']])] <- 'INVALID_CASE'
 
 setkeyv(Washington_Data_LONG, c("VALID_CASE", "CONTENT_AREA", "GRADE"))
 
@@ -240,7 +262,7 @@ lhoss <- Washington_Data_LONG[, as.list(as.vector(round(extendrange(SCALE_SCORE,
 #  Put all the knots and boundaries in a list that will work with SGP functions:
 Knots_Boundaries <- list()
 
-for (ca in c("READING", "WRITING", "MATHEMATICS", "SCIENCE")) {
+for (ca in c("EOC_MATHEMATICS_1", "EOC_MATHEMATICS_2", "EOC_BIOLOGY")) {
    tmp <- ks[CONTENT_AREA==ca,]
    tmp.b <- bs[CONTENT_AREA==ca,]
    tmp.c <- lhoss[CONTENT_AREA==ca,]
@@ -250,38 +272,3 @@ for (ca in c("READING", "WRITING", "MATHEMATICS", "SCIENCE")) {
       Knots_Boundaries[[ca]][[paste("loss.hoss_", g, sep="")]] <- c(tmp.c[GRADE==g,V1], tmp.c[GRADE==g,V2])
    }
 }
-
-###
-###   Save Results
-###
-
-###  Remove unnecessary variables
-
-Washington_Data_LONG$YEAR_INT <- NULL
-Washington_Data_LONG$YEAR_PRIOR <- NULL
-Washington_Data_LONG$YEAR_2YR_PRIOR <- NULL
-
-###  Return Names to original variable names first:
-eval(parse(text=paste("setnames(Washington_Data_LONG, c(", 
-                      paste("'", paste(SGPstateData[["WA"]][["Variable_Name_Lookup"]][["names.sgp"]], collapse="','"), "'", sep=""), "),", "c(", 
-                      paste("'", paste(SGPstateData[["WA"]][["Variable_Name_Lookup"]][["names.provided"]], collapse="','"), "'", sep=""), "))")))
-
-save(Washington_Data_LONG, file="Data/Washington_Data_LONG.Rdata", compress="bzip2")
-save(Knots_Boundaries, file="Data/Washington_Knots_Boundaries.Rdata")
-
-
-###
-###   prepareSGP
-###
-
-#  Replace (TEMPORARILY) the SGPstateData knots and bounds before running analyzeSGP
-SGPstateData[['WA']][['Achievement']][['Knots_Boundaries']]<- Knots_Boundaries
-
-### Check to see if prepareSGP works (still need to figure out Knots and boundaries first)
-
-SGPstateData[["WA"]][["Variable_Name_Lookup"]] <- read.csv("/home/avi/Dropbox/stateData/Variable_Name_Lookup/WA_Variable_Name_Lookup.csv", colClasses=c(rep("character",4), "logical"))
-
-Washington_SGP <- prepareSGP(Washington_Data_LONG)
-Washington_SGP@SGP <- list(Knots_Boundaries=Knots_Boundaries)
-
-save(Washington_SGP, file="Data/Washington_SGP.Rdata")

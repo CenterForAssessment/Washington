@@ -1,6 +1,4 @@
 Washington
-==========
+========
 
-Washington SGP Analyses.
-
-First commit
+SGP source code and documentation associated with Washington SGP analyses

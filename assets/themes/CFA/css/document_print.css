@@ -132,8 +132,9 @@
 #document h2 a,
 #document h3 a,
 #document h4 a {
-  margin-top: -100px;
-  padding-top: 100px; 
+  margin: -100px 100px 0 100px;
+  padding: 100px 0px 0px 0px;
+  line-height: 100px;
 }
 
 #document h2 {

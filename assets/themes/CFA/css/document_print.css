@@ -1,0 +1,319 @@
+/* document */
+
+#document {
+  counter-reset: figure 0 section 0;
+}
+
+/* Increment Figure Counter */
+.content-node.image,
+.content-node.resource {
+  counter-increment: figure;
+}
+.content-node .caption {
+  margin: 0px 100px;
+  padding: 15px 0;
+  text-align:justify;
+  font-style: italic;
+  padding-left: 50px ;
+  text-indent: -50px ;
+}
+.content-node .caption.empty {
+  display: none;
+}
+.content-node .caption:before {
+  content: "Fig. " counter(figure) " ";
+  font-weight: bold;
+  padding-right: 12px ;
+}
+.content-node.image {
+  text-align: center;
+}
+.image-content {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.image-content img, .image-content div {
+  padding: 0;
+  margin: 0;
+  max-width: 720px;
+  min-width: 200px;
+  min-height: 150px;
+  display: block;
+  padding: 5px 5px;
+  text-align: center;
+}
+.image-content.placeholder .image-file {
+  bottom: 30px;
+}
+
+
+#document .resource-url-area .url-label {
+  color: #555;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-style: italic;
+}
+#document .resource-url-area {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  padding: 20px;
+  border: 2px dashed #aaa;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.content-node.resource {
+  text-align: center;
+}
+.content-node.resource img {
+  padding: 0;
+  margin: 0;
+  max-width: 720px;
+  display: block;
+  padding: 5px 0;
+}
+
+.content-node.section {
+  margin-bottom: 10px;
+}
+#document h1 {
+  counter-reset: sub-section;
+  font-size: 24px;
+  border-top:none;
+  border-bottom:none;
+  text-transform:none;
+}
+#document h2 {
+  counter-reset: composite;
+  border-top:none;
+  border-bottom:none;
+  text-transform:none;
+}
+#document h1:before {
+  counter-increment: section;
+  content: counter(section) " ";
+  font-weight: bold;
+  margin-right: 20px;
+}
+#document h2:before {
+  counter-increment: sub-section;
+  content: counter(section) "." counter(sub-section) " ";
+  margin-right: 20px;
+  font-weight: bold;
+}
+#document h3:before {
+  counter-increment: composite;
+  content: counter(section) "." counter(sub-section) "." counter(composite) " ";
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+/* Need -100px margin and 100 padding (TOP) to put heading href below navbar */
+#document h1,
+#document h2,
+#document h3,
+#document h4 {
+  font-weight: normal;
+  margin: -100px 100px 0 100px;
+  padding: 100px 0px 0px 0px;
+  line-height: 1.6em;
+  color: black;
+}
+
+/* Drop down heading href below navbar (when <a id= ... /a> convention used) */
+#document h1 a,
+#document h2 a,
+#document h3 a,
+#document h4 a {
+  margin-top: -100px;
+  padding-top: 100px; 
+}
+
+#document h2 {
+  font-size: 20px;
+}
+#document h3 {
+  font-size: 16px;
+  font-style: italic;
+}
+#document .content-node.text .content {
+  padding: 10px 0;
+}
+.content-node.section > p, ol {
+  margin: 0 100px;
+}
+
+code {
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
+  font-size: 12px;
+  padding: 0px 3px;
+  background: white;
+  border: 1px solid #DDD;
+  zoom: 1;
+}
+#document strong,
+#document b {
+  font-weight: bold;
+}
+#document em,
+#document i {
+  font-style: italic;
+}
+#document p {
+  margin-bottom: 20px;
+  min-height: 22px;
+}
+#document ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+  margin-left: 100px;
+  margin-right: 90px;
+  min-height: 22px;
+}
+#document ul, li {
+  padding-left: 20px;
+  margin-bottom: 10px;
+  margin-left: 100px;
+  margin-right: 90px;
+  min-height: 22px;
+}
+
+/* nested list indents -- http://doctype.com/changing-indentation-nested-lists-css */
+#document ul ul {
+  margin-left: 30px;
+  margin-right: 0px;
+  min-height: 22px;
+  -moz-padding-start: 0px;
+  -webkit-padding-start: 0px;
+}
+
+p {
+  margin: 0 0 10px 0;
+  text-align:justify;
+}
+p.info {
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.7);
+}
+h1,
+h2,
+h3,
+h4 {
+  padding: 10px 0 5px 0;
+}
+h3,
+h4 {
+  padding-top: 20px;
+}
+h2 {
+  font-size: 160%;
+  padding-bottom: 15px;
+}
+h5 {
+  margin: 0em 100px 0 55px;
+  padding: 0;
+  line-height: 0;
+}
+h5+p {
+  margin-bottom: -20px;
+  text-align:justify;
+  padding-bottom: 0px;
+  padding-left: 35px ;
+  text-indent: -35px ;
+}
+
+/*  Text indentation for paragraphs if desired
+h1+p,
+h2+p,
+h3+p,
+p+p {
+  text-indent: 5%;
+}
+*/
+
+.content-node.document .document-title {
+  font-size: 30px;
+  line-height: 40px;
+  padding-top: 20px;
+  text-align: center;
+  margin: 0 100px 10px 100px;
+}
+.content-node.document .document-subtitle {
+  font-size: 25px;
+  font-style: italic;
+  line-height: 30px;
+  text-align: center;
+  margin: 0 100px 20px 100px;
+}
+.content-node.document .authors {
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.content-node.document .published {
+  font-size: 18px;
+  margin-top: 10px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.content-node.document #document_lead {
+  font-size: 18px;
+  line-height: 1.2;
+  font-style: italic;
+  text-align: center;
+  color: #999;
+  padding: 0 100px 0 100px;
+}
+
+hr {
+	display:none
+}
+
+
+/* Citations & References http://www.vanseodesign.com/css/css-specificity-inheritance-cascaade/ http://www.thesitewizard.com/css/hanging-indents.shtml */
+#citation p {
+  margin: 0 100px;
+  text-align:justify;
+  min-height: 22px;
+  padding-bottom: 15px;
+  padding-left: 35px ;
+  text-indent: -35px ;
+}
+
+/* Button */
+a.button {
+  border: none;
+  display: block;
+  float: left;
+  font-size: 15px;
+  color: white;
+  background: #A2C44E;
+  padding: 7px 10px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+a.button.contribute {
+  margin-top: 20px;
+}
+a.button:hover {
+  background: #B4D354;
+}
+a.button:active {
+  background: #98B247;
+}
+#document #document_lens {
+	display:none;
+}
+.footer{
+	display:none;
+}

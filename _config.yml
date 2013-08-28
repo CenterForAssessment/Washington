@@ -15,15 +15,6 @@ author :
   name : Center For Assessment
   email : http://www.nciea.org
   github : CenterForAssessment
-author :
-  name : Adam VanIwaarden
-  email : avaniwaarden@gmail.com
-  github : adamvi
-author :
-  name : Damian Betebenner
-  email : dbetebenner@nciea.org
-  github : dbetebenner
-  twitter: http://twitter.com/DBetebenner
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -33,7 +24,8 @@ author :
 # Else if you are pushing to username.github.com, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : Washington
+# production_url : Washington
+
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
 JB :

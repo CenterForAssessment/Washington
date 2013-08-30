@@ -12,10 +12,14 @@
       <link href="http://fonts.googleapis.com/css?family=Open+Sans:700italic,400,600" rel='stylesheet' type='text/css'>
       <link rel="shortcut icon" href="favicon.ico">
 	
-      <link rel="stylesheet" href="css/document_print.css">
-      <link rel="stylesheet" href="css/document.css">
-      <link rel='stylesheet' href='css/nv.d3.css'>
-      <link rel='stylesheet' href='css/rNVD3.css'>
+      <link rel="stylesheet" href="{{ ASSET_PATH }}/css/document_print.css">
+      <link rel="stylesheet" href="{{ ASSET_PATH }}/css/document.css">
+      <link rel="stylesheet" href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.css">
+      <link rel="stylesheet" href="{{ ASSET_PATH }}/bootstrap/css/bootstrap-responsive.css">
+      <link rel="stylesheet" href="{{ ASSET_PATH }}/css/cfa.css">
+      <link rel="stylesheet" href="{{ ASSET_PATH }}/css/flat-ui.css">
+      <link rel="stylesheet" href="{{ ASSET_PATH }}/css/font-awesome.css">
+      <link rel="stylesheet" href="{{ ASSET_PATH }}/css/font-awesome-ie7.min.css">
 
       <script src="http://code.jquery.com/jquery.js"></script>
       <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -57,7 +61,7 @@
   
 	  <body style="background: white; border: none;">
 
-	      <div id="document" style="margin-left: 30px; margin-right: 30px; width: 1080px; box-shadow: none;">
+	      <div id="document" style="margin-left: 30px; margin-right: 30px; margin-top: 5px; width: 1080px; box-shadow: none;">
 
 	          <div class="content-node document selected">
 	              <div class="content">
@@ -93,11 +97,7 @@
 	          </div>
 	          
 	      </div>
-
-	      <div class="footer" style='text-align:center; margin-left: 30px; margin-right: 30px; width: 1080px;'>
-	          <i>All contents Copyright 2013. All rights reserved. CSS adapted from Substance.io and Scott.Fortmann-Roe.com and modified.</i>
-	      </div>
-      
+     
 	    <script src="http://code.jquery.com/jquery.js"></script>
 	    <script src="js/bootstrap.min.js"></script>
 	  </body>

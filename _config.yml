@@ -102,35 +102,13 @@ JB :
     
 navbar: 
   - 
-    name: Resources
-    menu: 
-      - 
-        label: Annual Analysis Reports <b class='caret'></b>
-        submenu: 
-          - 
-            label: School Year 2011-12
-            link: Washington_SGP_Analysis_2012.html
-          - 
-            label: School Year 2012-13
-            link: 404.html
-      - 
-        label: OSPI Documentation <b class='caret'></b>
-        submenu: 
-          - 
-            label: SGP Business Rules
-            link: http://www.k12.wa.us/Assessment/pubdocs/BusinessRulesforCalculationofWashingtonSGP.pdf
-      - 
-        label: FAQ
-        link: FAQ.html 
-
-  - 
     name: Technical Documentation
     menu: 
       - 
         label: The Washington Growth Model
         link: Washington_SGP_Model.html 
       - 
-        label: Published Articles <b class='caret'></b>
+        label: Published Articles
         submenu: 
           - 
             label:  Norm- and criterion-referenced student growth.<br> Betebenner, EMIP 2009
@@ -148,11 +126,30 @@ navbar:
             label: Student Growth Percentiles and Shoe Leather <br> Betebenner, Wenning & Briggs 2011
             link: http://www.nciea.org/publication_PDFs/growthandStandard_DB09.pdf
 
+  - 
+    name: Resources
+    menu: 
+      - 
+        label: Annual Analysis Reports
+        submenu: 
+          - 
+            label: School Year 2011-12
+            link: Washington_SGP_Analysis_2012.html
+          - 
+            label: School Year 2012-13
+            link: 404.html
+      - 
+        label: Washington OSPI Resources
+        link: http://www.k12.wa.us/Assessment/StudentGrowth.aspx
+      - 
+        label: FAQ
+        link: FAQ.html 
+
   -
     name: How it Works 
     menu: 
       - 
-        label: Analytic Software <b class='caret'></b>
+        label: Analytic Software
         submenu:
           - 
             label: SGP Package Primer
@@ -164,7 +161,7 @@ navbar:
         label: Data Prep and Structure
         link: https://github.com/CenterForAssessment/SGP#data-preparation
       - 
-        label: Presentations & Trainings <b class='caret'></b>
+        label: Presentations & Trainings
         submenu: 
           - 
             label: R and the SGP Package
@@ -181,7 +178,7 @@ navbar:
         link: http://www.nciea.org/
       - 
         label: Washington Office of Superintendent of Public Instruction (OSPI)
-        link: http://www.k12.wa.us/Assessment/StudentGrowth.aspx
+        link: http://www.k12.wa.us/AboutUs/default.aspx
 
   -
     name: Contact Us 

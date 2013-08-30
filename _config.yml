@@ -169,6 +169,9 @@ navbar:
           - 
             label: NCME Presentation
             link: 404.html
+          - 
+            label: Adequate Growth <br> (Catch Up & Keep Up)
+            link: resources/Catch_Up_Keep_Up.pdf
 
   -
     name: About Us 

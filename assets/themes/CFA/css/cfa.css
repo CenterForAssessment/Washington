@@ -1599,6 +1599,8 @@ button::-moz-focus-inner {
     top: 120px;
     bottom: 0px;
     min-height: 100%;
+	padding-bottom: 32767px;
+	margin-bottom: -32767px;
   }
 
   #sidebar > .nav > .nav-menu > a {

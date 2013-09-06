@@ -86,10 +86,11 @@ sub {
 }
 body {
   margin: 0;
-  font-family: "Avenir Next Thin", Arial, sans-serif;
-  font-size: 20px;
-  line-height: 35px;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  line-height: 1.231;
 }
+
 a {
   color: #3290d8;
   text-decoration: none;
@@ -1244,132 +1245,6 @@ button::-moz-focus-inner {
   top: -161.5px;
 }
 
-/***************************************************
- *                   Hive grid                     *
- ***************************************************/
-
-.hive-grid {
-  height:732.5px;
-  margin-top: 76px;
-  background-image: url('/assets/themes/hive/images/honeycomb/honeycomb_lrg_1.0-blur.png');
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-}
-.hive-grid .patch {
-  position: absolute;
-  top: 50%;
-  margin-top: -146px;
-  left: 50%;
-  margin-left: -126.5px;
-  opacity: .5;
-  -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
-  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.1s ease-in-out;
-  -webkit-backface-visibility: hidden;
-}
-.hive-grid .patch a {
-  display: block;
-  width: 253px;
-  height: 291px;
-  line-height: -5; /* needed for hover tip tool */
-  z-index: 1;
-  position: relative;
-}
-.hive-grid .patch.hero-patch {
-  z-index: 2;
-  opacity: 1;
-}
-.hive-grid .patch.hero-patch .blank {
-  text-shadow: 0 0 80px rgba(0, 0, 0, 0.8);
-}
-.hive-grid .patch.loading {
-  -webkit-transform: translate3d(0, 0, 0) scale3d(0, 0, 0);
-  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.1s ease-in-out;
-  opacity: 0;
-}
-.hive-grid .patch:hover { /*  changed from .patch.hover  to get hover to work  */
-  opacity: 1;
-  -webkit-transform: translate3d(0, -4px, 0) scale3d(1, 1, 1);
-}
-
-.hive-grid-small {
-  height: 513px;
-  background-image: url('/assets/themes/hive/images/honeycomb/honeycomb_small_1.5-blur.png');
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-}
-.hive-grid-small .patch {
-  position: absolute;
-  top: 50%;
-  margin-top: -146px;
-  left: 50%;
-  margin-left: -126.5px;
-  opacity: .5;
-  -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
-  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.1s ease-in-out;
-  -webkit-backface-visibility: hidden;
-}
-.hive-grid-small .patch a {
-  display: block;
-  width: 253px;
-  height: 291px;
-  line-height: -5; /* needed for hover tip tool */
-  z-index: 1;
-  position: relative;
-}
-.hive-grid-small .patch.hero-patch {
-  z-index: 2;
-  opacity: 1;
-}
-.hive-grid-small .patch.hero-patch .blank {
-  text-shadow: 0 0 80px rgba(0, 0, 0, 0.8);
-}
-.hive-grid-small .patch.loading {
-  -webkit-transform: translate3d(0, 0, 0) scale3d(0, 0, 0);
-  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.1s ease-in-out;
-  opacity: 0;
-}
-.hive-grid-small .patch:hover { /*  changed from .patch.hover  to get hover to work  */
-  opacity: 1;
-  -webkit-transform: translate3d(0, -4px, 0) scale3d(1, 1, 1);
-}
-
-.hive-grid-inset:before {
-  pointer-events: none;
-  content: "";
-  height: 10px;
-  width: 120%;
-  position: absolute;
-  top: 0;
-  left: -10%;
-  opacity: 0.2;
-  z-index: 6;
-}
-.hive-grid-inset:after {
-  pointer-events: none;
-  content: "";
-  height: 20px;
-  width: 120%;
-  position: absolute;
-  bottom: 0;
-  left: -10%;
-  opacity: 0.2;
-  z-index: 5;
-}
-
-.hive-contact {
-  margin-top: 65px;
-  padding: 25px;
-  height: 600px;
-  width: 110%;
-  left: 5%;
-  background-image: url('/assets/themes/hive/images/honeycomb/honeycomb_contact_1.png');
-  background-position: center;
-  position: absolute;
-  overflow: hidden;
-}
-
   /* ------------------------------------------- */
   /* ------ stylize the "title" in a:hover ----- */
   /* ------ http://stackoverflow.com/questions/2011142/how-to-change-the-style-of-title-attribute-inside-the-anchor-tag ----- */
@@ -1565,14 +1440,12 @@ button::-moz-focus-inner {
 	  font-size: 14px;
   }
 
-
-
   /*  even page-title */
   .page-title{
       text-align: center;
       position: relative;
       overflow: hidden;
-	  margin-top: 76px;
+	  margin-top: 80px;
   }
   .page-title h2{
       display: inline-block;
@@ -1590,17 +1463,27 @@ button::-moz-focus-inner {
       right: 15%
   }
 
+  .contact {
+	  font-size: 24px;
+	  text-shadow: 1px 1px #424242;
+      text-align: center;
+	  line-height: 25px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+
+  .cfa-contact {
+	background-repeat: no-repeat;
+    background-position: top center;
+  }
 
   /* Vertical Nav bar*/
   
   #sidebar {
-    margin-left: 0px;
     position: absolute;
+	float: left;
+    margin-left: 0px;
     top: 120px;
-    bottom: 0px;
-    min-height: 100%;
-	padding-bottom: 32767px;
-	margin-bottom: -32767px;
   }
 
   #sidebar > .nav > .nav-menu > a {
@@ -1609,4 +1492,32 @@ button::-moz-focus-inner {
     padding: 20px;
   }
 
-  
+  .navbar .btn-navbar {
+      margin-left: 2px;
+      margin-right: 2px;
+  }
+  .navbar .btn-navbar {
+      background-color: #47a1a1;
+      background-image: none;
+      background-repeat: repeat-x;
+      border-color: none;
+      box-shadow: none;
+      color: #eff0e9;
+      float: left;
+      padding: 7px 10px;
+      text-shadow: 0 0px 0 rgba(0, 0, 0, 0.0);
+      border-width: 0;
+      border-radius: 2px;
+  }
+  .navbar .btn-navbar:hover{
+      background-color: #47a1a1;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3) inset;
+      -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3) inset;
+  }
+  .navbar .btn-navbar:active{
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3) inset;
+      -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3) inset;
+  }
+  .btn-navbar i {
+      color: #eff0e9;
+  }

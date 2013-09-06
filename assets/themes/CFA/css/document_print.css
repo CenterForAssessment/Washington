@@ -134,7 +134,7 @@
 #document h4 a {
   margin: -100px 100px 0 100px;
   padding: 100px 0px 0px 0px;
-  line-height: 100px;
+  line-height: 1.6em;
 }
 
 #document h2 {
@@ -180,6 +180,7 @@ code {
 }
 #document ul, li {
   padding-left: 20px;
+  margin-top: 0px;
   margin-bottom: 10px;
   margin-left: 100px;
   margin-right: 90px;

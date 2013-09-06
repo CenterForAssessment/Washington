@@ -10,17 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.meta_title }}: {{ page.meta_subtitle }}</title>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:700italic,400,600" rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="favicon.ico">
 	
     <!-- start: CSS -->
     <link rel="stylesheet" href="{{ ASSET_PATH }}/css/document_print.css">
     <link rel="stylesheet" href="{{ ASSET_PATH }}/css/document.css">
     <link rel="stylesheet" href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="{{ ASSET_PATH }}/bootstrap/css/bootstrap-responsive.css">
-    <link rel="stylesheet" href="{{ ASSET_PATH }}/css/cfa.css">
     <link rel="stylesheet" href="{{ ASSET_PATH }}/css/flat-ui.css">
-    <link rel="stylesheet" href="{{ ASSET_PATH }}/css/font-awesome.css">
-    <link rel="stylesheet" href="{{ ASSET_PATH }}/css/font-awesome-ie7.min.css">
+    <link rel="stylesheet" href="{{ ASSET_PATH }}/css/cfa.css">
     <!-- end: CSS -->
 
 	<!--  Green color for CFA -->
@@ -76,8 +73,12 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-	              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-01"></button>
-	              <div class="nav-collapse collapse" id="nav-collapse-01">
+				<button class="btn btn-navbar collapsed" data-target=".nav-collapse" data-toggle="collapse" type="button" >
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+				</button>
+	            <div class="nav-collapse collapse" id="nav-collapse-01">
 	                <ul class="nav">
 					<li>
 						<a href="index.html">Home</a>
@@ -108,7 +109,7 @@
 	                  </li>
 					{% endfor %}
 	                </ul>
-	              </div><!-- nav -->
+	            </div><!-- nav -->
 			</div>
 		</div>
 	</div><!--end: navbar -->

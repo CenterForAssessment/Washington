@@ -861,17 +861,7 @@ h4 {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.navbar .btn-navbar:before {
-  content: "\e00c";
-  font-family: "Flat-UI-Icons";
-  font-size: 21.994px;
-  font-style: normal;
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-}
-.navbar .btn-navbar .icon-bar {
-  display: none;
-}
+
 .navbar-inner {
   border: none;
   padding-left: 0;

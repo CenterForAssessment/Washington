@@ -16,6 +16,25 @@ author :
   email : http://www.nciea.org
   github : CenterForAssessment
 
+CFA:
+  name: Center For Assessment
+  address: 31 Mount Vernon Street <br> Dover, NH 03820
+  phone: (603) 516-7900
+  email: dbetebenner@nciea.org
+  mapsite: 'http://a.tiles.mapbox.com/v3/adamvi.map-skzt93ls.html#14/43.19873153204993/-70.878'
+
+#'http://a.tiles.mapbox.com/v3/adamvi.map-skzt93ls.html#14/43.200358309041576/-70.86825370788574'
+# "http://a.tiles.mapbox.com/v3/adamvi.map-skzt93ls.html#14/43.20142194746969/-70.85769653320312"
+
+client:
+  name: Washington OSPI
+  address: Old Capitol Building <br> P.O. Box 47200 <br> Olympia, WA 98504
+  phone: (360) 725-6000
+  email: studentgrowth@k12.wa.us
+  mapsite: 'http://a.tiles.mapbox.com/v3/adamvi.map-08ie93kt.html#14/47.041/-122.9'
+ # 'http://a.tiles.mapbox.com/v3/adamvi.map-08ie93kt.html#14/47.039304752323034/-122.89589881896973'
+ #"http://a.tiles.mapbox.com/v3/adamvi.map-08ie93kt.html#14/47.04012365242329/-122.88079261779785"
+
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
 # Most places will/should use BASE_PATH to make the urls
@@ -53,7 +72,8 @@ JB :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH : http://centerforassessment.github.io/Washington
+#  BASE_PATH : http://centerforassessment.github.io/Washington
+  BASE_PATH : http://adamvi.github.io/Test_State
 
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
@@ -112,7 +132,7 @@ navbar:
         submenu: 
           - 
             label:  Norm- and criterion-referenced student growth.<br> Betebenner, EMIP 2009
-            link:  resources/Betebenner_EMIP_2009.pdf
+            link: https://github.com/CenterForAssessment/SGP_Resources/blob/master/articles/Betebenner_EMIP_2009.pdf?raw=true
       - 
         label: White Papers
         submenu: 
@@ -153,7 +173,7 @@ navbar:
         submenu:
           - 
             label: SGP Package Primer
-            link: resources/sgpPrimer.pdf
+            link: https://github.com/CenterForAssessment/SGP_Resources/blob/master/manuals/sgpPrimer.pdf?raw=true
           - 
             label: SGP Demonstrations
             link: 404.html
@@ -165,13 +185,13 @@ navbar:
         submenu: 
           - 
             label: R and the SGP Package
-            link: resources/R+SGP_Package.pdf
+            link: https://github.com/CenterForAssessment/SGP_Resources/blob/master/presentations/R+SGP_Package.pdf?raw=true
           - 
             label: NCME Presentation
             link: 404.html
           - 
             label: Adequate Growth <br> (Catch Up & Keep Up)
-            link: resources/Catch_Up_Keep_Up.pdf
+            link: https://github.com/CenterForAssessment/SGP_Resources/blob/master/presentations/Catch_Up_Keep_Up.pdf?raw=true
 
   -
     name: About Us 
@@ -185,7 +205,7 @@ navbar:
 
   -
     name: Contact Us 
-    link: 404.html
+    link: contact.html
 
   # Special section for CFA theme - 'footer social' 
   # Puts social icons/links into each "post" footer section along with the copyright info.

@@ -43,10 +43,10 @@ configToSGPNormGroup <- function(sgp.config) {
 ### Load and create 2012_2013 EOC Configuration
 
 source("EOC/2010_2011/MATHEMATICS.R")
-source("EOCT/2011_2012/MATHEMATICS.R")
+source("EOC/2011_2012/MATHEMATICS.R")
 # source("EOCT/2010_2011/BIOLOGY.R") # BIO starts in 2012
 # source("EOCT/2011_2012/BIOLOGY.R") # not calculating Science or Biology
-source("EOC/2013_2013/MATHEMATICS.R")
+source("EOC/2012_2013/MATHEMATICS.R")
 
 
 

@@ -1,6 +1,9 @@
-.Rapp.history
+.Rapp
+.Rhistory
 .DS_Store
 .RData
 .Rdata
 /Data
 /Visualizations
+/Misc
+/_Misc

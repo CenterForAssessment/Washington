@@ -322,9 +322,8 @@ the steps that transpire over 3 years to determine whether this student is on tr
     * No 2, 3, or 4 year targets are utilized because they exceed the accountability time-frame initially established for the student to reach proficient.
 
 The complexity of the process just described is minimized by the use of the `R` software environment in conjunction with an open source software 
-package `SGP` developed by the National Center for the Improvement of Educational Assessment in consultation with the Washinton State 
-Department of Education to calculate student growth percentiles and percentile growth projections/trajectories 
-[(R Core Team, 2013)](#rsoftware2013). Every year, following the loading of the data into the Washington State Department of Education data warehouse, 
+library `SGP` developed by the state Department of Education to calculate student growth percentiles and percentile growth projections/trajectories 
+[(R Core Team, 2013)](#rsoftware2013). Every year, following the loading of the data into the state Department of Education data warehouse, 
 student growth percentiles and percentile growth trajectories are calculated for each student. Once calculated, these values are easily used to make the 
 yes/no determinations about the adequacy of each student's growth relative to his/her fixed achievement targets. These yes/no determinations are then 
 used in aggregate to determine whether schools have met their AYP targets. 

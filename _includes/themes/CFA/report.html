@@ -34,6 +34,7 @@
     <script src='{{ ASSET_PATH }}/js/nv.d3.js' type='text/javascript'></script>
     <script src='{{ ASSET_PATH }}/js/fisheye.js' type='text/javascript'></script>
 
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">
 		MathJax.Hub.Config({
             tex2jax: {
@@ -47,11 +48,16 @@
 			   equationNumbers: {
 				   autoNumber: "all"
 			   },
-			   TagIndent: "100px"
-		   }
+			   TagIndent: "100px",
+			   style: {
+				   "font-size": 100,
+				   "color":       "black"
+				   // add any additional CSS styles that you want
+				   //  (be sure there is no extra comma at the end of the last item)
+			   }
+		   },
 	   });
     </script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 	
 	<script type="text/javascript">var tableNum = 1;</script>
 	<script type="text/javascript">var figNum = 1;</script>

@@ -148,10 +148,10 @@ navbar:
         submenu: 
           - 
             label: School Year 2011-12
-            link: Washington_SGP_Analysis_2012.html
+            link: 404.html
           - 
             label: School Year 2012-13
-            link: 404.html
+            link: Washington_SGP_Report_2013.html
       - 
         label: Washington OSPI Resources
         link: http://www.k12.wa.us/Assessment/StudentGrowth.aspx

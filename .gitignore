@@ -3,7 +3,6 @@
 .DS_Store
 .RData
 .Rdata
-*.Rmd
 /Data
 /_Misc
 /_site

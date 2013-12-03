@@ -11,7 +11,7 @@ contents:
   - section: Introduction
   - section: Data
     subsections: [Longitudinal Data]
-  - section: Results
+  - section: SGP Results
     subsections: [Median SGPs, Adequate Growth]
   - section: Goodness of Fit
     subsections: [Student Level Results, Group Level Results, School Level Results]
@@ -30,6 +30,7 @@ This document was written by Damian Betebenner & Adam VanIwaarden for the State 
 
 	Original Draft:  November 22, 2013
 	Edited (AVI):  December 1, 2013
+	Edited (DWB):  December 3, 2013
 	...
 -->
 
@@ -45,7 +46,12 @@ Assessment (NCIEA) contracted with the Washington Office of Superintendent of Pu
 Assessment Program. The goal of the engagement with OSPI was to conduct a set of initial analyses that would eventually be conducted by OSPI in following years.  
 
 The SGP methodology is a norm- and criterion-referenced student growth analysis that produces student growth percentiles and student growth projections/targets for each student with longitudinal
-data in the state.
+data in the state. The methodology is not designed for any particular use. States and districts have used the results in various way including parent/student diagnostic reporting, institutional
+and personnel accountability. The Washington OSPI use of these data for accountability purposes is not a part of this report and as of the time of this writing continues to evolve.
+
+The report includes three sections and multiple appendices covering: Data, SGP Results, and Goodness of Fit:
+
+1. Section Data includes details on the data preparation 
 
 
 # Data
@@ -141,7 +147,7 @@ Table <script> document.write(NsizeTable); </script> shows the number of valid s
 </table>
 
 
-# Results
+# SGP Results
 The following sections provide basic descriptive statistics from the 2013 analyses.
 
 ## Median SGPs

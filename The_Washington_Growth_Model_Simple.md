@@ -731,25 +731,20 @@ ability to stipulate *both* what the growth standard is as well as how much the 
 ## Defining Adequate Growth
 
 Establishing thresholds for growth for each student that can be used to make adequacy judgments requires pre-established achievement targets and a time-frame 
-to reach the target for each student against which growth can be assessed (i.e., growth-to-standard). Adequacy in many contexts has been defined as 
+to reach the target for each student against which growth can be assessed (i.e., growth-to-standard). Washington State has determined that a timeframe of three years from the establishment of the target is useful for purposes of describing students growth to standard.  Adequacy in many contexts has been defined as 
 *catching-up* and *keeping-up*:
 
-*  ***Catch-Up*** Those students currently not proficient are expected to reach proficient within 2 years following the establishment of the achievement target or by grade 10, whichever comes sooner.[<sup><script type="text/javascript"> document.write(noteNum++)</script></sup>](#footnotes)
-*  ***Keep-Up*** Those students currently at or above proficient are expected to remain at or above proficient in all of the 2 years following the establishment of the achievement target or by the final grade (8th in Math, 10th in Reading), whichever comes sooner.
-*  ***Move-Up*** Those students currently proficient are expected to reach advanced within 2 years following the establishment of the achievement target or by the final grade, whichever comes sooner.
-*  ***Stay-Up*** Those students currently advanced and are expected to remain advanced in all of the 2 years following the establishment of the achievement target or by the final grade, whichever comes sooner.
+*  ***Catch-Up*** Those students currently not proficient are expected to reach proficient within 3 years following the establishment of the achievement target or by grade 10, whichever comes sooner.[<sup><script type="text/javascript"> document.write(noteNum++)</script></sup>](#footnotes)
+*  ***Keep-Up*** Those students currently at or above proficient are expected to remain at or above proficient in all of the 3 years following the establishment of the achievement target or by the final grade (8th in Math, 10th in Reading), whichever comes sooner.
+*  ***Move-Up*** Those students currently proficient are expected to reach advanced within 3 years following the establishment of the achievement target or by the final grade, whichever comes sooner.
+*  ***Stay-Up*** Those students currently advanced and are expected to remain advanced in all of the 3 years following the establishment of the achievement target or by the final grade, whichever comes sooner.
 
 The previous definitions specify "3 years following the establishment of the achievement target" as the time frame. For example, an non-proficient 3<sup>rd</sup> grader 
 would be expected to be proficient by 6<sup>th</sup> grade, assuming a 1 grade/year progression. The first check of the student's progress occurs in 4<sup>th</sup> grade, 
 when the student's growth over the last year is compared against targets calculated to assess their progress along a multi-year time-line. The question asked following 
 the 4<sup>th</sup> grade for the student is: Did the student become proficient and if not are they on track to become proficient within 3 years?
 
-It is important to note that each student's achievement targets and time-frame to reach these targets are fixed. However, depending upon the student's interim 
-rates of growth, the growth percentiles required to reach his/her fixed achievement target are likely going to be adjusted. For example, a 3<sup>rd</sup> grade 
-non-proficient student in reading (with an achievement target of proficient in reading by the 6<sup>th</sup> grade) might demonstrate sizable growth between 3<sup>rd</sup> 
-and 4<sup>th</sup> grade and still remain non-proficient. However, the question of relevance for state departments of education, given that they did not reach proficiency 
-in 4<sup>th</sup> grade, is whether they are on track to become proficient within 2 years. Following the 5<sup>th</sup> grade, a determination will be made as to whether 
-they are on track to become proficient in 1 year if they are not already proficient. The destination and the time frame to reach it remain fixed. 
+It is important to note that Washington State is not incorporating adequate growth in any accountability measures at this time; these targets and are provided as an additional descriptive measure to assist in school improvement. 
 
 ## Calculation of Growth Percentile Targets <a id="calculation-of-growth-targets">
 
@@ -770,36 +765,35 @@ To describe how these numerous coefficient matrices are used together to produce
 student in reading with 3<sup>rd</sup> and 4<sup>th</sup> grade state reading scores of 325 (Below Basic) and 340 (Below Basic), respectively. The following are 
 the steps that transpire over 3 years to determine whether this student is on track to reach proficient.
 
-*  **August 2013** Accountability clock begins requiring students to reach state defined achievement targets within 4 years or by grade 8. In this example, the Below Basic 3<sup>rd</sup> grade (in 2013) student under consideration is expected to be proficient by grade 7 in 2017.
+*  **Spring 2013** Accountability clock begins requiring students to reach state defined achievement targets within 4 years or by grade 8. In this example, the Below Basic 3<sup>rd</sup> grade (in 2013) student under consideration is expected to be proficient by grade 7 in 2017.
 
-*  **August 2014** Employing the coefficient matrices derived in the calculation of 2014 student growth percentiles:
+*  **Spring 2014** Employing the coefficient matrices derived in the calculation of 2014 student growth percentiles:
     * First, the coefficient matrix relating grade 4 with grade 3 prior achievement is used to establish the percentile cuts (i.e., one-year growth percentile  projections/trajectories). If the student's actual 2014 growth percentile exceeds the percentile cut associated with proficient, then the student's one year growth is enough to reach proficient.[$^6$](#footnotes) If the student reaches his/her achievement goal, then the accountability clock is reset for this student, with a new achievement goal of remaining proficient for the next 4 years. 
     * Next, the 2 (consecutive) year growth percentile projections/trajectories are calculated, extending from 2013 to 2015. The student's actual grade 3 scale score together with the 99 hypothetical one-year growth percentile projections/trajectories derived in the previous step are plugged into the most recently derived coefficient matrix relating grade 5 with grade 3 & 4 prior achievement. This yields the percentile cuts (i.e., 2 year growth percentile projections/trajectories) for the student indicating what consecutive two-year 1<sup>st</sup> through 99<sup>th</sup> percentile growth (based upon the most recent student growth histories in the state) will lead to. Using the August 2013 achievement targets (proficient by 7<sup>th</sup> grade, for this student), 2 year growth sufficient to reach the target is determined and the student's growth percentile is compared to this target. If the student's growth percentile exceeds this target, then the student is deemed on track to reach proficient.
     * Next, the 3 year growth percentile projections/trajectories are established. The student's actual grade 3 scale score together with the 99 hypothetical 1 and 2 year growth percentile projections/trajectories derived in the previous step are plugged into the coefficient matrix relating grade 6 with grade 3, 4, & 5 prior achievement. This yields the percentile cuts (i.e., 3 year growth percentile projections/trajectories) for each student indicating what consecutive three-year 1<sup>st</sup> through 99<sup>th</sup> percentile growth (based upon the most recent student growth histories in the state) will lead to in terms of future achievement. Using the August 2013 achievement targets (proficient by 7<sup>th</sup> grade, for this student), 3 year growth sufficient to reach the target is determined and the student's growth percentile is compared to this target. If the student's growth percentile exceeds this target then the student is deemed on track to reach proficient. 
     * Last, the 4 year growth percentiles projections/trajectories are established. The student's actual grade 3 scale score together with the 99 hypothetical 1, 2, and 3 year growth percentile projections/trajectories derived in the previous step are plugged into the coefficient matrix relating grade 7 with grade 3, 4, 5, & 6 prior achievement. This yields the percentile cuts (i.e., 4 year growth percentile projections/trajectories) for each student indicating what consecutive four-year 1<sup>st</sup> through 99<sup>th</sup> percentile growth (based upon the most recent student growth histories in the state) will lead to in terms of future achievement. Using the August 2013 achievement targets (proficient by 7<sup>th</sup> grade for this student), 4 year growth sufficient to reach the target is determined and the student's growth percentile is compared to this target. If the student's growth percentile exceeds this target then the student is deemed on track to reach proficient. 
 
-*  **August 2015** Employing the coefficient matrices derived in the calculation of 2015 student growth percentiles:
+*  **Spring 2015** Employing the coefficient matrices derived in the calculation of 2015 student growth percentiles:
     * First, with the student now presumably completing grade 5, the coefficient matrix relating grade 5 with grade 3 & 4 prior achievement is used to establish 99 percentile cuts (i.e., one-year growth percentile projections/trajectories). If the student's actual 2015 growth percentile exceeds the cut associated with proficient, then the student's one year growth was enough to reach proficient.[$^7$](#footnotes) If the student reaches his/her achievement goal, then the accountability clock is reset for this student, with a new achievement goal of remaining proficient for the next 4 years. 
     * Next, the student's grade 3 & 4 actual scores together with the 99 hypothetical one-year growth percentile projections/trajectories derived in the previous step are plugged into the coefficient matrix relating grade 6 with grade 3, 4, & 5 prior achievement. This yields 99 percentile cuts (i.e., 2 year growth percentile projections/trajectories) for the student indicating what consecutive two-year 1<sup>st</sup> through 99<sup>th</sup> percentile growth (based upon the most recent student growth histories in the state) will lead to in terms of future achievement. Using the August 2013 accountability achievement targets (proficient by 7<sup>th</sup> grade for this student), 2 year growth sufficient to reach the target is determined and the student's growth percentile is compared to this target. If the student's growth percentile exceeds this target then the student is deemed on track to reach proficient.
     * Finally, the student's grade 3 & 4 actual scores together with the 99 hypothetical 1 & 2 year growth percentile projections/trajectories derived in the previous steps are plugged into the coefficient matrix relating grade 7 with grade 3, 4, 5, & 6 prior achievement. This yields 99 percentile cuts (i.e., 3 year growth percentile projections/trajectories) for the student indicating what consecutive three-year 1<sup>st</sup> through 99<sup>th</sup> percentile growth (based upon the most recent student growth histories in the state) will lead to in terms of future achievement. Using the August 2013 accountability achievement targets (proficient by 7<sup>th</sup> grade for this student), 3 year growth sufficient to reach the target is determined and the student growth percentile is compared to this target. If the student's growth percentile exceeds this target then the student is deemed on track to reach proficient.
     * No 4 year targets are utilized because they exceed the time-frame initially established for the student to reach proficient.
 
-*  **August 2016** Employing the coefficient matrices derived in the calculation of 2016 student growth percentiles:
+*  **Spring 2016** Employing the coefficient matrices derived in the calculation of 2016 student growth percentiles:
     * First, with the student now presumably completing grade 6, the coefficient matrix relating grade 6 with grade 3, 4, & 5 prior achievement is used to establish 99 percentile cuts (i.e., one-year growth percentile projections/trajectories). If the student's actual 2012 growth percentile exceeds the cut associated with proficient, then the student's one year growth was enough to reach proficient.[$^8$](#footnotes) If the student reaches his/her achievement goal, then the accountability clock is reset for this student, with a new achievement goal of remaining proficient for the next 4 years. 
     * Next, the student's grade 3, 4, & 5 actual scores together with the 99 hypothetical one-year growth percentile projections/trajectories derived in the previous step are plugged into the coefficient matrix relating grade 7 with grade 3, 4, 5, & 6 prior achievement. This yields 99 percentile cuts (i.e., 2 year growth percentile projections/trajectories) for the student indicating what consecutive two-year 1<sup>st</sup> through 99<sup>th</sup> percentile growth (based upon the most recent student growth histories in the state) will lead to in terms of future achievement. Using the August 2013 accountability achievement targets (proficient by 7<sup>th</sup> grade for this student), 2 year growth sufficient to reach the target is determined and the student's growth percentile is compared to this target. If the student's growth percentile exceeds this target then the student is deemed on track to reach proficient.
     * No 3 or 4 year targets are utilized because they exceed the time-frame initially established for the student to reach proficient.
 
-*  **August 2017** Employing the coefficient matrices derived in the calculation of 2017 student growth percentiles:
+*  ** Spring 2017** Employing the coefficient matrices derived in the calculation of 2017 student growth percentiles:
     * Because 2017 is the terminal year of the 4 year time frame established for the student to reach proficient the student is deemed to have grown sufficiently if they have reached proficient. 
     * No 2, 3, or 4 year targets are utilized because they exceed the accountability time-frame initially established for the student to reach proficient.
 
 The complexity of the process just described is minimized by the use of the `R` software environment in conjunction with an open source software 
 package `SGP` [(Betebenner, VanIwaarden, Domingue & Shang, 2013)](sgp2013) developed by the National Center for the Improvement of Educational Assessment in consultation with the Washington State 
-Department of Education to calculate student growth percentiles and percentile growth projections/trajectories 
-[(R Core Team, 2013)](#rsoftware2013). Every year, following the loading of the data into the Washington State Department of Education data warehouse, 
+Office of Superintendent of Public Instruction (OSPI) to calculate student growth percentiles and percentile growth projections/trajectories 
+[(R Core Team, 2013)](#rsoftware2013). Every year, following the completion of the WCAP score reconciliation, 
 student growth percentiles and percentile growth trajectories are calculated for each student. Once calculated, these values are easily used to make the 
-yes/no determinations about the adequacy of each student's growth relative to his/her fixed achievement targets. These yes/no determinations are then 
-used in aggregate to determine whether schools have met their AYP targets. 
+yes/no determinations about the adequacy of each student's growth relative to his/her fixed achievement targets. 
 
 ## System-wide Growth and Achievement Charts <a id="growth-and-achievement-charts">
 Operational work calculating student growth percentiles with state assessment data yields a large number of coefficient matrices derived 
@@ -818,9 +812,9 @@ Establishing criterion referenced growth thresholds requires consideration of mu
 Instead of inferring that prior student growth is indicative of future student growth (e.g., linearly projecting student achievement 
 into the future based upon past rates of change), predictions of future student achievement are contingent upon initial student status 
 (where the student starts) and subsequent rates of growth (the rate at which the student grows). This avoids fatalistic statements 
-such as, "Student $X$ is projected to be (not) proficient in three years" and instead promotes discussions about the different rates 
-of growth necessary to reach future achievement targets: "In order that Student $X$ reach/maintain proficiency within three years, 
-she will have to demonstrate  $n^{th}$ percentile growth consecutively for the next three years." The change in phraseology is minor 
+such as, "Student $X$ is projected to be (not) proficient in two years" and instead promotes discussions about the different rates 
+of growth necessary to reach future achievement targets: "In order that Student $X$ reach/maintain proficiency within two years, 
+she will have to demonstrate  $n^{th}$ percentile growth consecutively for the next two years." The change in phraseology is minor 
 but significant. Stakeholder conversations turn from "where will (s)he be" to "what will it take?"
 
 <!--  

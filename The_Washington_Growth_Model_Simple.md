@@ -55,21 +55,30 @@ The report includes three sections and multiple appendices covering: Data, SGP R
 
 
 # Data
-Data for the Washington Comprehensive Assessment Program (WCAP) used in the SGP analyses were supplied by the Washington OSPI to the NCIEA for analysis in the fall of 2013. The current longitudinal data set includes academic years 2007-2008 through 2012-2013. Subsequent years' analyses will augment this multi-year data set allow OSPI to maintain a comprehensive longitudinal data set for all students
-taking the WCAP. Beyond growth analyses, this data allow the state to, for example, track course taking patterns of students.
+Data for the Washington Comprehensive Assessment Program (WCAP) used in the SGP analyses were supplied by the Washington OSPI to the NCIEA for analysis in the fall of 2013. The current longitudinal data set includes academic years 2005-2006 through 2012-2013. Subsequent years' analyses will augment this multi-year data set allow OSPI to maintain a comprehensive longitudinal data set for all students
+taking the WCAP. 
 
-Student Growth Percentiles have been produced for students that have a current score and at least one prior score in the same subject or a related content area.  SGPs were produced for grade-level Reading and Mathematics, as well as high school End of Course (EOC) Mathematics 1 and 2.
+Student Growth Percentiles have been produced for students that have a current score and at least one prior score in the same subject or a related content area.  SGPs were produced for grade-level Reading and Mathematics, as well as high school End of Course (EOC) Mathematics 1 (Algebra) and 2 (Geometry).
 
 ## Longitudinal Data
-Growth analyses on assessment data require data which are linked to individual students over time.  Student growth percentile analyses require, at a minimum two, and preferably three years of assessment data for analysis of student progress. To this end it is necessary that a unique student identifier be available so that student data records across years can be merged with one another and subsequently examined. Because some records in the assessment data set contain students with more than one test score in a content area in a given year, a process to create unique student records in each content area by year combination was required in order to carry out subsequent growth analyses. The elimination of duplicate records can be accomplished by selecting one of the multiple records based upon a decision rule.  Duplicates were removed from the 2013 panel data prior to submission. 
+Growth analyses on assessment data require data which are linked to individual students over time.  Student growth percentile analyses require, at a minimum two, and preferably three years of assessment data for analysis of student progress. To this end it is necessary that a unique student identifier be available so that student data records across years can be merged with one another and subsequently examined. Because some records in the assessment data set contain students with more than one test score in a content area in a given year, a process to create unique student records in each content area by year combination was required in order to carry out subsequent growth analyses. The elimination of duplicate records was accomplished by selecting one of the multiple records based upon the following decision rules:
 
-Other student records may be invalid for use in SGP production for other reasons. The following data cleaning rules were implemented in 2013:
+1) If a student took more than one assessment, in the same subject, test type, grade and school year, their highest score was selected.  
+2) If a student took more than one assessment in the same grade, subject and school year, their highest score was selected.  
+3) If as student took more than one assessment in the same subject and school year, but was identified as being in two different grades, their highest score was selected.
 
-1. Records with a `TestAttempt` value other than `TS` were invalidated.
-2. Records with a `GRADE` value outside of the official tested grades were invalidated.
-3. Students in Home Based or Private schooling environments were invalidated, as were students with a F1 Visa designation.
-4. Records with `DAPE` and `PORT` designations for `TestType` were invalidated.
-5. Students with missing (`NA`) student identifiers or scale scores were invalidated.
+OSPI identified duplicates as invalid in the 2013 panel data prior to calculation. 
+
+Other student records may be invalid for use in SGP production for other reasons. The following data cleaning rules were applied in 2013:
+
+1. Records from test administrations other than spring were invalidated. 
+2. Records with a `TestAttempt` value other than `TS` were invalidated.
+3. Records with a `GRADE` value outside of the official tested grades were invalidated.
+4. Students in Home Based or Private schooling environments were invalidated, as were students with a F1 Visa designation.
+5. Records with `DAPE` and `PORT` designations for `TestType` were invalidated.
+6. Students with missing (`NA`) student identifiers or scale scores were invalidated.
+7. Scores of students that repeated an end of course math assessment in the current year, with a math end of course assessment score in the previous year during the spring test administration were invalidated.
+8. Scores of students that repeated a grade were invalidated.
 
 <script type="text/javascript"> var NsizeTable = tableNum++; </script>
 Table <script> document.write(NsizeTable); </script> shows the number of valid student records available for analysis after applying these business rules.[$^9$](#footnotes)
@@ -151,7 +160,7 @@ Table <script> document.write(NsizeTable); </script> shows the number of valid s
 The following sections provide basic descriptive statistics from the 2013 analyses.
 
 ## Median SGPs
-Growth percentiles, being quantities associated with each individual student, can be easily summarized across numerous grouping indicators to provide summary results regarding growth. Being state norm-referenced percentiles, across all students in the state, with perfect data fit the median of all student growth percentiles in any grade is 50. The median of a collection of growth percentiles is used as the measure of central tendency to summarize the distribution as a single number. Median growth percentiles well below 50 represent growth less than the state "average" and median growth percentiles well above 50 represent growth in excess of the state "average". 
+Growth percentiles, being quantities associated with each individual student, can be easily summarized across numerous grouping indicators to provide summary results regarding growth. The median of a collection of growth percentiles is used as the measure of central tendency to summarize the distribution as a single number. With perfect data fit, we expect the state median of all student growth percentiles in any grade to be 50 because the data are norm-referenced across all students in the state.   Median growth percentiles well below 50 represent growth less than the state "average" and median growth percentiles well above 50 represent growth in excess of the state "average". 
 
 <!-- Coordinate R and Javascript Table Counters.  R will be done internally this time through creation of table and htmlTable function -->
 <script type="text/javascript"> var medianCohortSGPs = tableNum++; </script>
@@ -230,7 +239,7 @@ Based upon perfect model fit to the data, the median of all state growth percent
 It is important to note how, at the entire state level, the *normative* growth information returns very little information. What the results indicate is that a typical (or average) student in the state demonstrates 50th percentile growth. That is, a "typical students" demonstrate "typical growth". The power of the normative results follows when subgroups are examined (e.g., schools, district, ethnic groups, etc.) Examining subgroups in terms of the median of their student growth percentiles, it is then possible to investigate why some subgroups display lower/higher student growth than others. Moreover, because the subgroup summary statistic (i.e., the median) is composed of many individual student growth percentiles, one can break out the result and further examine the distribution of individual results. 
 
 ## Adequate Growth (Growth to Standard) <a id="adequate-growth">
-To fully understand the rates of student growth in the state, it is necessary to complement the normative growth results with a standard based interpretation. These so called growth-to-standard results currently find favor in the growth model approved for using as AYP criteria under No Child Left Behind (NCLB). Where as normative growth answers the question "What is?", growth-to-standard analyses attempt to establish a threshold answering "What should be?". If universal proficiency is the goal of the education system, then growth adequacy can be anchored to that achievement target.
+To fully understand the rates of student growth in the state, it is necessary to complement the normative growth results with a standard based interpretation. These so called growth-to-standard results currently find favor in the growth model approved for using as AYP criteria under No Child Left Behind (NCLB). Whereas normative growth answers the question "What is?", growth-to-standard analyses attempt to establish a threshold answering "What should be?". If universal proficiency is the goal of the education system, then growth adequacy can be anchored to that achievement target.  Please refer to section 5.5 for a more detailed discussion of 'Adequate Growth'.
 <script type="text/javascript"> var pctAdqGrowth = tableNum++; </script>
 
 The top panel of Table <script> document.write(pctAdqGrowth); </script> below shows the percent of students that are predicted to be on track to either "Catch Up" (attain proficiency if they match or exceed the level of growth demonstrated in 2013 for the next two years) or "Keep up" (maintain proficiency with consistent growth over two years).  The second panel depicts the percent of students who are on track to either "Move Up" to the Advanced (attain the highest proficiency level with consistent growth) or "Stay Up" (maintain the Advanced proficiency level).

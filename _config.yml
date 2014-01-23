@@ -3,7 +3,7 @@
 permalink: /:year/:month/:title 
 markdown: kramdown
 
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "cache", "figure"]
+exclude: ["*.Rmd", ".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "cache", "figure"]
 pygments: true
 
 # Themes are encouraged to use these universal variables 
@@ -118,9 +118,6 @@ navbar:
   - 
     name: Technical Documentation
     menu: 
-      - 
-        label: The Washington Growth Model
-        link: Washington_SGP_Model.html 
       - 
         label: Published Articles
         submenu: 

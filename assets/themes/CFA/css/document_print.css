@@ -195,6 +195,9 @@ code {
   -moz-padding-start: 0px;
   -webkit-padding-start: 0px;
 }
+#document p + ul, ol {
+  margin-top: -20px;
+}
 
 p {
   margin: 0 0 10px 0;

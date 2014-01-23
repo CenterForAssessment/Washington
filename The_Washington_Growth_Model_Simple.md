@@ -4,7 +4,7 @@ report_title: The Washington Growth Model
 report_subtitle: A Technical Overview of the Student Growth Percentile Methodology and Brief Report of 2013 Results
 report_abstract:
 report_authors: [Damian W. Betebenner, Adam R. VanIwaarden, National Center for the Improvement of Educational Assessment (NCIEA)]
-report_date: December 2013
+report_date: January 2014
 meta_title: The Washington Growth Model
 meta_subtitle: Student Growth Percentiles
 contents:
@@ -14,12 +14,10 @@ contents:
   - section: SGP Results
     subsections: [Median SGPs, Adequate Growth]
   - section: Goodness of Fit
-    subsections: [Student Level Results, Group Level Results, School Level Results]
+    subsections: [Student Level Results, Group Level Results]
   - section: Appendix A - The SGP Methodology
-    subsections: [Introduction - Why Student Growth?, Student Growth Percentiles, Student Growth Percentile Calculation, Percentile Growth Projections/Trajectories, Defining Adequate Growth, Growth and Achievement Charts, Discussion of Model Properties]
+    subsections: [Why Student Growth?, Student Growth Percentiles, Student Growth Percentile Calculation, Percentile Growth Projections, Defining Adequate Growth, Calculation of Growth Targets, Growth and Achievement Charts, Discussion of Model Properties]
   - section: Appendix B - Model Fit Plots
-    subsections: [Grade-Level Reading, Grade-Level Mathematics, EOC Mathematics 1, EOC Mathematics 2]
-  - section: Appendix C - State-Level Bubble Plots
     subsections: [Grade-Level Reading, Grade-Level Mathematics, EOC Mathematics 1, EOC Mathematics 2]
   - section: Footnotes
   - section: References
@@ -31,19 +29,18 @@ This document was written by Damian Betebenner & Adam VanIwaarden for the State 
 	Original Draft:  November 22, 2013
 	Edited (AVI):  December 1, 2013
 	Edited (DWB):  December 3, 2013
+	Edited (AVI):  January 21, 2014
 	...
 -->
 
 <!-- load some R packages and functions required for HTML table creation silently .  Load SGP here to avoid messages, but do it again in the body as example -->
 
 
-
-
 # Introduction
 
 This report contains details on the implementation of the student growth percentiles (SGP) for the state of Washington. The National Center for the Improvement of Educational
 Assessment (NCIEA) contracted with the Washington Office of Superintendent of Public Instruction (OSPI) to implement the SGP methodology using data derived from the Washington Comprehensive 
-Assessment Program. The goal of the engagement with OSPI was to conduct a set of initial analyses that would eventually be conducted by OSPI in following years.  
+Assessment Program. The goal of the engagement with OSPI is to conduct a set of initial analyses that will eventually be conducted by OSPI in following years.  
 
 The SGP methodology is a norm- and criterion-referenced student growth analysis that produces student growth percentiles and student growth projections/targets for each student with longitudinal
 data in the state. The methodology is not designed for any particular use. States and districts have used the results in various way including parent/student diagnostic reporting, institutional
@@ -51,21 +48,23 @@ and personnel accountability. The Washington OSPI use of these data for accounta
 
 The report includes three sections and multiple appendices covering: Data, SGP Results, and Goodness of Fit:
 
-1. Section Data includes details on the data preparation 
-
+* *Data* includes details on the decision rules used in the raw data preparation and student record validation.
+* *SGP Results* provides basic descriptive statistics from the 2013 analyses.
+* The *Goodness of Fit* section provides details about how well the statistical models used to produce SGPs fit Washington students' data.  This includes discussion of goodness of fit plots and the student- and school-level correlations between SGP and prior achievement.
 
 # Data
-Data for the Washington Comprehensive Assessment Program (WCAP) used in the SGP analyses were supplied by the Washington OSPI to the NCIEA for analysis in the fall of 2013. The current longitudinal data set includes academic years 2005-2006 through 2012-2013. Subsequent years' analyses will augment this multi-year data set allow OSPI to maintain a comprehensive longitudinal data set for all students
-taking the WCAP. 
+Data for the Washington Comprehensive Assessment Program (WCAP) used in the SGP analyses were supplied by the Washington OSPI to the NCIEA for analysis in the fall of 2013. The current
+longitudinal data set includes academic years 2005-2006 through 2012-2013. Subsequent years' analyses will augment this multi-year data set allow OSPI to maintain a comprehensive 
+longitudinal data set for all students taking the WCAP. 
 
 Student Growth Percentiles have been produced for students that have a current score and at least one prior score in the same subject or a related content area.  SGPs were produced for grade-level Reading and Mathematics, as well as high school End of Course (EOC) Mathematics 1 (Algebra) and 2 (Geometry).
 
 ## Longitudinal Data
 Growth analyses on assessment data require data which are linked to individual students over time.  Student growth percentile analyses require, at a minimum two, and preferably three years of assessment data for analysis of student progress. To this end it is necessary that a unique student identifier be available so that student data records across years can be merged with one another and subsequently examined. Because some records in the assessment data set contain students with more than one test score in a content area in a given year, a process to create unique student records in each content area by year combination was required in order to carry out subsequent growth analyses. The elimination of duplicate records was accomplished by selecting one of the multiple records based upon the following decision rules:
 
-1) If a student took more than one assessment, in the same subject, test type, grade and school year, their highest score was selected.  
-2) If a student took more than one assessment in the same grade, subject and school year, their highest score was selected.  
-3) If as student took more than one assessment in the same subject and school year, but was identified as being in two different grades, their highest score was selected.
+1. If a student took more than one assessment, in the same subject, test type, grade and school year, their highest score was selected.  
+2. If a student took more than one assessment in the same grade, subject and school year, their highest score was selected.  
+3. If as student took more than one assessment in the same subject and school year, but was identified as being in two different grades, their highest score was selected.
 
 OSPI identified duplicates as invalid in the 2013 panel data prior to calculation. 
 
@@ -81,10 +80,12 @@ Other student records may be invalid for use in SGP production for other reasons
 8. Scores of students that repeated a grade were invalidated.
 
 <script type="text/javascript"> var NsizeTable = tableNum++; </script>
-Table <script> document.write(NsizeTable); </script> shows the number of valid student records available for analysis after applying these business rules.[$^9$](#footnotes)
+Table <script> document.write(NsizeTable); </script> shows the number of valid student records available for analysis after applying these business rules.[$^1$](#footnotes)
+
+
 
 <table class='gmisc_table' style='border-collapse: collapse;'  id='table_1'>
-	<caption align='top'>
+	<caption align='top' style='text-align: left;'>
 	Table 1: Number of Valid Student Records by Grade and Subject for 2013</caption>
 	<thead>
 	<tr>
@@ -157,17 +158,19 @@ Table <script> document.write(NsizeTable); </script> shows the number of valid s
 
 
 # SGP Results
-The following sections provide basic descriptive statistics from the 2013 analyses.
+The following sections provide basic descriptive statistics from the 2013 analyses, including the state-level median growth percentiles and the percent of students who are on-track to either attain or maintain proficiency in two years or less.
 
 ## Median SGPs
 Growth percentiles, being quantities associated with each individual student, can be easily summarized across numerous grouping indicators to provide summary results regarding growth. The median of a collection of growth percentiles is used as the measure of central tendency to summarize the distribution as a single number. With perfect data fit, we expect the state median of all student growth percentiles in any grade to be 50 because the data are norm-referenced across all students in the state.   Median growth percentiles well below 50 represent growth less than the state "average" and median growth percentiles well above 50 represent growth in excess of the state "average". 
 
 <!-- Coordinate R and Javascript Table Counters.  R will be done internally this time through creation of table and htmlTable function -->
 <script type="text/javascript"> var medianCohortSGPs = tableNum++; </script>
-To demonstrate the normative nature of the growth percentiles viewed at the state level, Table <script> document.write(medianCohortSGPs); </script> presents growth percentile medians by grade level in Reading and Mathematics. 
+To demonstrate the normative nature of the growth percentiles viewed at the state level, Table <script> document.write(medianCohortSGPs); </script> presents growth percentile medians by grade level in all four content areas. 
+
+
 
 <table class='gmisc_table' style='border-collapse: collapse;'  id='table_2'>
-	<caption align='top'>
+	<caption align='top' style='text-align: left;'>
 	Table 2: Median Student Growth Percentile by Grade and Content Area</caption>
 	<thead>
 	<tr>
@@ -234,19 +237,21 @@ To demonstrate the normative nature of the growth percentiles viewed at the stat
 </table>
 
 
-Based upon perfect model fit to the data, the median of all state growth percentiles in each grade by year by subject combination should be 50. That is, in the conditional distributions, 50 percent of growth percentiles should be less than 50 and 50 percent should be greater than 50. Deviations from 50 indicate imperfect model fit to the data. Imperfect model fit can occur for a number of reasons, some due to issues with the data (e.g., floor and ceiling effects leading to a "bunching" up of the data) as well as issues due to the way that the SGP function fits the data. The results in [Table <script> document.write(medianCohortSGPs); </script>](#table_<script> document.write(medianCohortSGPs); </script>) are close to perfect, with almost all values equal to 50. The results are coarse in that they are aggregated across tens of thousands of students. More refined fit analyses are presented in the Goodness-of-fit section that follows. Depending upon feedback from Washington OSPI, it may be desirable to tweak with some operational parameters and attempt to improve fit even further. The impact upon the operational results based on better fit is expected to be extremely minor.
+Based upon perfect model fit to the data, the median of all state growth percentiles in each grade by year by subject combination should be 50. That is, in the conditional distributions, 50 percent of growth percentiles should be less than 50 and 50 percent should be greater than 50. Deviations from 50 indicate imperfect model fit to the data. Imperfect model fit can occur for a number of reasons, some due to issues with the data (e.g., floor and ceiling effects leading to a "bunching" up of the data) as well as issues due to the way that the SGP function fits the data. The results in [Table <script> document.write(medianCohortSGPs); </script>](#table_<script> document.write(medianCohortSGPs); </script>) are close to perfect, with almost all values equal to 50. The results are coarse in that they are aggregated across tens of thousands of students. More refined fit analyses are presented in the Goodness-of-Fit section that follows. Depending upon feedback from Washington OSPI, it may be desirable to tweak with some operational parameters and attempt to improve fit even further. The impact upon the operational results based on better fit is expected to be extremely minor.
 
-It is important to note how, at the entire state level, the *normative* growth information returns very little information. What the results indicate is that a typical (or average) student in the state demonstrates 50th percentile growth. That is, a "typical students" demonstrate "typical growth". The power of the normative results follows when subgroups are examined (e.g., schools, district, ethnic groups, etc.) Examining subgroups in terms of the median of their student growth percentiles, it is then possible to investigate why some subgroups display lower/higher student growth than others. Moreover, because the subgroup summary statistic (i.e., the median) is composed of many individual student growth percentiles, one can break out the result and further examine the distribution of individual results. 
+It is important to note how, at the entire state level, the *normative* growth information returns very little information. What the results indicate is that a typical (or average) student in the state demonstrates 50th percentile growth. That is, "typical students" demonstrate "typical growth". The power of the normative results follows when subgroups are examined (e.g., schools, district, demographic groups, etc.) Examining subgroups in terms of the median of their student growth percentiles, it is then possible to investigate why some subgroups display lower/higher student growth than others. Moreover, because the subgroup summary statistic (i.e., the median) is composed of many individual student growth percentiles, one can break out the result and further examine the distribution of individual results. 
 
 ## Adequate Growth (Growth to Standard) <a id="adequate-growth">
-To fully understand the rates of student growth in the state, it is necessary to complement the normative growth results with a standard based interpretation. These so called growth-to-standard results currently find favor in the growth model approved for using as AYP criteria under No Child Left Behind (NCLB). Whereas normative growth answers the question "What is?", growth-to-standard analyses attempt to establish a threshold answering "What should be?". If universal proficiency is the goal of the education system, then growth adequacy can be anchored to that achievement target.  Please refer to section 5.5 for a more detailed discussion of 'Adequate Growth'.
-<script type="text/javascript"> var pctAdqGrowth = tableNum++; </script>
+To fully understand the rates of student growth in the state, it is necessary to complement the normative growth results with a standard based interpretation. These so called growth-to-standard results currently find favor in the growth model approved for using as AYP criteria under No Child Left Behind (NCLB). Whereas normative growth answers the question "What is?", growth-to-standard analyses attempt to establish a threshold answering "What should be?". If universal proficiency is the goal of the education system, then growth adequacy can be anchored to that achievement target.  Please refer to [section 5.5](defining-adequate-growth) for a more detailed discussion of "Adequate Growth".
+	<script type="text/javascript"> var pctAdqGrowth = tableNum++; </script>
 
-The top panel of Table <script> document.write(pctAdqGrowth); </script> below shows the percent of students that are predicted to be on track to either "Catch Up" (attain proficiency if they match or exceed the level of growth demonstrated in 2013 for the next two years) or "Keep up" (maintain proficiency with consistent growth over two years).  The second panel depicts the percent of students who are on track to either "Move Up" to the Advanced (attain the highest proficiency level with consistent growth) or "Stay Up" (maintain the Advanced proficiency level).
+The top panel of Table <script> document.write(pctAdqGrowth); </script> below shows the percent of students that are predicted to be on track to either "Catch Up" (attain proficiency if they match or exceed the level of growth demonstrated in 2013 for the next two years) or "Keep up" (maintain proficiency with consistent growth over two years).  The second panel depicts the percent of students who are on track to either "Move Up" to advanced (attain the highest proficiency level with consistent growth) or "Stay Up" (maintain the advanced proficiency level).
+
+
 
 <table class='gmisc_table' style='border-collapse: collapse;'  id='table_3'>
-	<caption align='top'>
-	Table 3: Percent of Students On-Track to Attain or Maintain Adequate Growth</caption>
+	<caption align='top' style='text-align: left;'>
+	Table 3: Percent of Students with Adequate Growth (On-Track to Attain or Maintain Proficiency)</caption>
 	<thead>
 	<tr>
 		<th colspan='1' style='font-weight: 900; border-top: 4px double grey;; text-align: center;'>&nbsp;</th><th style='border-top: 4px double grey;; border-bottom: hidden;'>&nbsp;</th>
@@ -284,7 +289,7 @@ The top panel of Table <script> document.write(pctAdqGrowth); </script> below sh
 		<td style=';; text-align: right;'>53.1</td>
 		<td style=';; text-align: right;'></td>
 	</tr>
-	<tr><td colspan='8' style='font-weight: 900; border-top: 1px solid grey;'>Moving or Staying Up</td></tr>
+	<tr><td colspan='9' style='font-weight: 900; border-top: 1px solid grey;'>Moving or Staying Up</td></tr>
 	<tr>
 		<td style=';; text-align: right;'>Reading</td>
 		<td style=';' colspan='1'>&nbsp;</td>
@@ -310,22 +315,35 @@ The top panel of Table <script> document.write(pctAdqGrowth); </script> below sh
 
 
 # Goodness of Fit
-Examination of goodness-of-fit was conducted by examining the estimated conditional density against the theoretical uniform density of the SGPs. Despite the use of B-splines to accommodate heteroscedasticity and skewness of the conditional density, assumptions are made concerning the number and position of spline knots that impact the percentile curves that are fit. With an infinite population of test takers, at each prior scaled score, with perfect model fit, the expectation is to have 10 percent of the estimated growth percentiles between 1 and 9, 10 and 19, 20 and 29, ..., and 90 and 99. Deviations from 10 percent would be indicative of lack of model fit. 
+Examination of goodness-of-fit was conducted by comparing the estimated conditional density with the theoretical uniform density of the SGPs. Despite the use of B-splines to accommodate heteroscedasticity and skewness of the conditional density, assumptions are made concerning the number and position of spline knots that impact the percentile curves that are fit. With an infinite population of test takers, at each prior scaled score, with perfect model fit, the expectation is to have 10 percent of the estimated growth percentiles between 1 and 9, 10 and 19, 20 and 29, ..., and 90 and 99. Deviations from 10 percent would be indicative of lack of model fit. 
 
 Using all available Reading, Mathematics, EOC Mathematics 1 and EOC Mathematics 2 scores as the variables, estimation of student growth percentiles was conducted for each student. Percentages of student growth percentiles between the 10th, 20th, 30th, 40th, 50th, 60th, 70th, 80th, and 90th percentiles were calculated based upon the decile of the prior year's scaled score (the total students in each for the analyses varies depending on grade and subject). Results for the B-spline parameterizations for Reading and Mathematics are given in the [Appendix B](#appendix-b---model-fit-plots). 
 
-The results in all subjects are excellent with a few exceptions. In grade 4, for example, deviations from perfect fit are indicated by red and blue shading.  The further *above* 10 the darker the red, and the further *below* 10 the darker the blue. In instances where large deviations from 10 occur, the likely cause is that there is a point mass associated with certain scale scores that makes it impossible to "split" the score at a dividing point forcing a majority of the scores into an adjacent cell. This is the case with all large deviations observed in the Demonstration data. 
+The results in all subjects are excellent with a few exceptions. In grade 4, for example, deviations from perfect fit are indicated by red and blue shading.  The further *above* 10 the darker the red, and the further *below* 10 the darker the blue. In instances where large deviations from 10 occur, the likely cause is that there is a point mass associated with certain scale scores that makes it impossible to "split" the score at a dividing point forcing a majority of the scores into an adjacent cell. This is the case with all large deviations observed in the Washington data. 
 
 ## Student Level Results
-To investigate the possibility that individual level misfit impacting summary level results, student growth percentile analyses were run on all students and the results were examined relative to prior achievement. With perfect fit to data, the correlation between students' most recent prior achievement scores and their student growth percentiles is zero. (i.e., the goodness of fit tables would have a uniform distribution of percentiles across all previous scale score levels). To investigate in another way, correlations between prior student scale scores and student growth percentiles were calculated to assess potential impact of the ceiling effects. The results are presented in Table <script> var studentCorrelations = tableNum++; </script><script> document.write(studentCorrelations); </script>:
+To investigate the possibility that individual level misfit might impact summary level results, student growth percentile analyses were run on all students and the results were examined relative to prior achievement. With perfect fit to data, the correlation between students' most recent prior achievement scores and their student growth percentiles is zero. (i.e., the goodness of fit tables would have a uniform distribution of percentiles across all previous scale score levels). To investigate in another way, correlations between prior student scale scores and student growth percentiles were calculated.[$^2$](#footnotes) The results are presented in Table <script> var studentCorrelations = tableNum++; </script><script> document.write(studentCorrelations); </script>:
+
+
 
 <table class='gmisc_table' style='border-collapse: collapse;'  id='table_4'>
-	<caption align='top'>
+	<caption align='top' style='text-align: left;'>
 	Table 4: Correlations between prior standardized scale score and Cohort SGPs by Grade and Content Area</caption>
 	<thead>
 	<tr>
 		<th colspan='1' style='font-weight: 900; border-top: 4px double grey;; text-align: center;'>&nbsp;</th><th style='border-top: 4px double grey;; border-bottom: hidden;'>&nbsp;</th>
 		<th colspan='7' style='font-weight: 900; border-bottom: 1px solid grey; border-top: 4px double grey;'>Grades</th>
+	</tr>
+	<tr>
+		<th style='border-bottom: 1px solid grey;; text-align: center;'>Content Area</th>
+		<th style='border-bottom: 1px solid grey;' colspan='1'>&nbsp;</th>
+		<th style='border-bottom: 1px solid grey;; text-align: center;'>4</th>
+		<th style='border-bottom: 1px solid grey;; text-align: center;'>5</th>
+		<th style='border-bottom: 1px solid grey;; text-align: center;'>6</th>
+		<th style='border-bottom: 1px solid grey;; text-align: center;'>7</th>
+		<th style='border-bottom: 1px solid grey;; text-align: center;'>8</th>
+		<th style='border-bottom: 1px solid grey;; text-align: center;'>9</th>
+		<th style='border-bottom: 1px solid grey;; text-align: center;'>10</th>
 	</tr>
 	</thead><tbody>
 	<tr>
@@ -334,10 +352,10 @@ To investigate the possibility that individual level misfit impacting summary le
 		<td style=';; text-align: right;'>-0.012</td>
 		<td style=';; text-align: right;'>-0.003</td>
 		<td style=';; text-align: right;'>-0.001</td>
-		<td style=';; text-align: right;'>0.000</td>
+		<td style=';; text-align: right;'>0</td>
 		<td style=';; text-align: right;'>-0.005</td>
-		<td style=';; text-align: right;'>-0.001</td>
 		<td style=';; text-align: right;'></td>
+		<td style=';; text-align: right;'>-0.001</td>
 	</tr>
 	<tr>
 		<td style=';; text-align: right;'>Mathematics</td>
@@ -345,7 +363,7 @@ To investigate the possibility that individual level misfit impacting summary le
 		<td style=';; text-align: right;'>-0.006</td>
 		<td style=';; text-align: right;'>-0.002</td>
 		<td style=';; text-align: right;'>-0.001</td>
-		<td style=';; text-align: right;'>0.000</td>
+		<td style=';; text-align: right;'>0</td>
 		<td style=';; text-align: right;'>-0.003</td>
 		<td style=';; text-align: right;'></td>
 		<td style=';; text-align: right;'></td>
@@ -357,9 +375,9 @@ To investigate the possibility that individual level misfit impacting summary le
 		<td style=';; text-align: right;'></td>
 		<td style=';; text-align: right;'></td>
 		<td style=';; text-align: right;'>0.003</td>
-		<td style=';; text-align: right;'> 0.003</td>
-		<td style=';; text-align: right;'>-0.007</td>
+		<td style=';; text-align: right;'>0.003</td>
 		<td style=';; text-align: right;'>0.008</td>
+		<td style=';; text-align: right;'>-0.007</td>
 	</tr>
 	<tr>
 		<td style='border-bottom: 1px solid grey;; text-align: right;'>EOC Mathematics 2</td>
@@ -369,12 +387,14 @@ To investigate the possibility that individual level misfit impacting summary le
 		<td style='border-bottom: 1px solid grey;; text-align: right;'></td>
 		<td style='border-bottom: 1px solid grey;; text-align: right;'></td>
 		<td style='border-bottom: 1px solid grey;; text-align: right;'></td>
-		<td style='border-bottom: 1px solid grey;; text-align: right;'> 0.005</td>
 		<td style='border-bottom: 1px solid grey;; text-align: right;'>0.002</td>
+		<td style='border-bottom: 1px solid grey;; text-align: right;'>0.005</td>
 	</tr>
 	</tbody>
 </table>
-Because no large misfits occur at the individual levels we proceed to a discussion of results at the institution level. 
+
+
+Here we see that there is no correlation at the individual student-level between growth and prior achievement.  This provides assurance that the models have fit the data well, and indicate that students can demonstrate high (or low) growth regardless of prior achievement.  We now proceed to a discussion of results at the institution level. 
 
 ## Group Level Results
 Unlike when reporting SGPs at the individual level, when aggregating to the group level (e.g., school) the correlation between aggregate prior student 
@@ -387,18 +407,38 @@ attending schools serving higher achieving students. Equivalently, based upon or
 a school accounts for between 1 and 10 percent of the variability observed in student growth. There are no definitive numbers on what this correlation 
 should be, but recent studies on value-added models show similar results [(McCaffrey, Han, and Lockwood, 2008)](mccahan2008).
 
-## School Level Results
-To illustrate these relationships visually, [Appendix C](#appendix-c---state-level-bubble-plots) provides bubble charts depicting growth as quantified by the median 
-SGP of students at the school against achievement/status, quantified by percentage of student at/above proficient (advanced) at the school.  The charts have been successful 
-in helping to motivate the discussion of the two qualities: student achievement and student growth. Though the figures are not detailed enough to indicate strength of 
-relationship between growth and achievement, they are suggestive and valuable for discussions with stakeholders who are being introduced to the growth model for the first time.
+### School Level Results
+<script type="text/javascript"> var bubble_read_prior = figNum++; </script>
+<script type="text/javascript"> var bubble_math_prior = figNum++; </script>
+To illustrate these relationships visually, the bubble charts in Figures <script> document.write(bubble_read_prior); </script> and <script> document.write(bubble_math_prior); </script>
+depict growth as quantified by the median SGP of students at the school against achievement/status, quantified by percentage of student at/above proficient (advanced) at the school. 
+The charts have been successful in helping to motivate the discussion of the two qualities: student achievement and student growth. Though the figures are not detailed enough to 
+indicate strength of relationship between growth and achievement, they are suggestive and valuable for discussions with stakeholders who are being introduced to the growth model 
+for the first time.
+
+<div class='content-node image' id='bubble_read_prior'>
+	<div class='caption'>School-level Bubble Plots for Washington State:  Reading, 2012-2013.</div>
+	<div class='image-content'>    
+		<img src="img/Bubble_Plots/2013/Washington_2012_2013_Reading_State_Bubble_Plot_(Prior_Achievement).png" alt="bubble_read_prior" style="width: 850px; padding: 10px;"/>
+	</div>
+</div>
+
+<div class='content-node image' id='bubble_math_prior'>
+	<div class='caption'>School-level Bubble Plots for Washington State:  Mathematics, 2012-2013.</div>
+	<div class='image-content'>    
+		<img src="img/Bubble_Plots/2013/Washington_2012_2013_Mathematics_State_Bubble_Plot_(Prior_Achievement).png" alt="bubble_math_prior" style="width: 850px; padding: 10px;"/>
+	</div>
+</div>
 
 The relationship between average prior student achievement and median SGP observed for Washington is relatively strong compared to some other state for whom
 the Center has done SGP analyses. Table <script> var schoolCorrelations = tableNum++; </script><script> document.write(schoolCorrelations); </script> shows 
-correlations between prior achievement (measured as the mean prior standardized scale score as well as the percent at/above proficient at the school).
+correlations between prior achievement (measured as the mean prior standardized scale score as well as the percent at/above proficient at the school[$^3$](#footnotes)).
+All results shown here are for schools with 10 or more students.
+
+
 
 <table class='gmisc_table' style='border-collapse: collapse;'  id='table_5'>
-	<caption align='top'>
+	<caption align='top' style='text-align: left;'>
 	Table 5: Correlations between school-level median SGPs and mean prior standardized scale score and percent proficient by Content Area</caption>
 	<thead>
 	<tr>
@@ -415,37 +455,39 @@ correlations between prior achievement (measured as the mean prior standardized 
 	<tr>
 		<td style=';; text-align: right;'>Reading</td>
 		<td style=';' colspan='1'>&nbsp;</td>
-		<td style=';; text-align: right;'>0.421</td>
-		<td style=';; text-align: right;'>0.539</td>
+		<td style=';; text-align: right;'>0.42</td>
+		<td style=';; text-align: right;'>0.4</td>
 	</tr>
 	<tr>
 		<td style=';; text-align: right;'>Mathematics</td>
 		<td style=';' colspan='1'>&nbsp;</td>
-		<td style=';; text-align: right;'>0.279</td>
-		<td style=';; text-align: right;'>0.546</td>
+		<td style=';; text-align: right;'>0.28</td>
+		<td style=';; text-align: right;'>0.26</td>
 	</tr>
 	<tr>
 		<td style=';; text-align: right;'>EOC Mathematics 1</td>
 		<td style=';' colspan='1'>&nbsp;</td>
-		<td style=';; text-align: right;'>0.257</td>
-		<td style=';; text-align: right;'>0.451</td>
+		<td style=';; text-align: right;'>0.26</td>
+		<td style=';; text-align: right;'></td>
 	</tr>
 	<tr>
 		<td style='border-bottom: 1px solid grey;; text-align: right;'>EOC Mathematics 2</td>
 		<td style='border-bottom: 1px solid grey;' colspan='1'>&nbsp;</td>
-		<td style='border-bottom: 1px solid grey;; text-align: right;'>0.317</td>
-		<td style='border-bottom: 1px solid grey;; text-align: right;'>0.658</td>
+		<td style='border-bottom: 1px solid grey;; text-align: right;'>0.32</td>
+		<td style='border-bottom: 1px solid grey;; text-align: right;'></td>
 	</tr>
 	</tbody>
 </table>
 
 
-The results in Table <script type="text/javascript"> var studentCorrelations = tableNum++; </script> are similar to those found in a number of other states.
-Generally the range can be anywhere from 0.1 to 0.6. It can be helpful to look at these correlations at the individual grade level as well.  Table <script> var schoolGradeCorrelations = tableNum++; </script><script> document.write(schoolGradeCorrelations); </script> shows correlations between SGPs and the mean prior 
-standardized scale score by grade level.
+The results in Table <script> document.write(schoolCorrelations); </script> are similar to those found in a number of other states. It can be helpful to look at these 
+correlations at the individual grade level as well.  Table <script> var schoolGradeCorrelations = tableNum++; </script><script> document.write(schoolGradeCorrelations); </script> 
+shows correlations between SGPs and the mean prior standardized scale score by grade level.
+
+
 
 <table class='gmisc_table' style='border-collapse: collapse;'  id='table_6'>
-	<caption align='top'>
+	<caption align='top' style='text-align: left;'>
 	Table 6: Correlations between school-level median SGPs and mean prior standardized scale score by Content Area and Grade</caption>
 	<thead>
 	<tr>
@@ -467,22 +509,22 @@ standardized scale score by grade level.
 	<tr>
 		<td style=';; text-align: right;'>Reading</td>
 		<td style=';' colspan='1'>&nbsp;</td>
-		<td style=';; text-align: right;'>0.270</td>
-		<td style=';; text-align: right;'>0.219</td>
-		<td style=';; text-align: right;'>0.188</td>
-		<td style=';; text-align: right;'>0.186</td>
-		<td style=';; text-align: right;'>0.142</td>
+		<td style=';; text-align: right;'>0.27</td>
+		<td style=';; text-align: right;'>0.22</td>
+		<td style=';; text-align: right;'>0.19</td>
+		<td style=';; text-align: right;'>0.19</td>
+		<td style=';; text-align: right;'>0.14</td>
 		<td style=';; text-align: right;'></td>
-		<td style=';; text-align: right;'>0.326</td>
+		<td style=';; text-align: right;'>0.33</td>
 	</tr>
 	<tr>
 		<td style=';; text-align: right;'>Mathematics</td>
 		<td style=';' colspan='1'>&nbsp;</td>
-		<td style=';; text-align: right;'>0.118</td>
-		<td style=';; text-align: right;'>0.028</td>
-		<td style=';; text-align: right;'>0.096</td>
-		<td style=';; text-align: right;'>0.093</td>
-		<td style=';; text-align: right;'>0.259</td>
+		<td style=';; text-align: right;'>0.12</td>
+		<td style=';; text-align: right;'>0.03</td>
+		<td style=';; text-align: right;'>0.10</td>
+		<td style=';; text-align: right;'>0.09</td>
+		<td style=';; text-align: right;'>0.26</td>
 		<td style=';; text-align: right;'></td>
 		<td style=';; text-align: right;'></td>
 	</tr>
@@ -492,10 +534,10 @@ standardized scale score by grade level.
 		<td style=';; text-align: right;'></td>
 		<td style=';; text-align: right;'></td>
 		<td style=';; text-align: right;'></td>
-		<td style=';; text-align: right;'>0.295</td>
-		<td style=';; text-align: right;'>0.263</td>
-		<td style=';; text-align: right;'>0.254</td>
-		<td style=';; text-align: right;'>0.145</td>
+		<td style=';; text-align: right;'>0.29</td>
+		<td style=';; text-align: right;'>0.26</td>
+		<td style=';; text-align: right;'>0.25</td>
+		<td style=';; text-align: right;'>0.15</td>
 	</tr>
 	<tr>
 		<td style='border-bottom: 1px solid grey;; text-align: right;'>EOC Mathematics 2</td>
@@ -505,16 +547,18 @@ standardized scale score by grade level.
 		<td style='border-bottom: 1px solid grey;; text-align: right;'></td>
 		<td style='border-bottom: 1px solid grey;; text-align: right;'></td>
 		<td style='border-bottom: 1px solid grey;; text-align: right;'></td>
-		<td style='border-bottom: 1px solid grey;; text-align: right;'>0.155</td>
-		<td style='border-bottom: 1px solid grey;; text-align: right;'>0.348</td>
+		<td style='border-bottom: 1px solid grey;; text-align: right;'>0.15</td>
+		<td style='border-bottom: 1px solid grey;; text-align: right;'>0.35</td>
 	</tr>
 	</tbody>
 </table>
 
 
-# Appendix A - An Overview of the SGP Methodology
+Again, these results are similar to what is observed elsewhere.  Grade level correlations have been observed in the range from 0 to 0.6 in other states.
 
-## Introduction - Why Student Growth? <a id="introduction">
+# Appendix A - An Overview of the SGP Methodology <a id="appendix-a---the-sgp-methodology">
+
+## Introduction - Why Student Growth? <a id="why-student-growth">
 Accountability systems constructed according to federal adequate yearly progress (AYP) requirements currently rely upon annual "snap-shots" of student achievement 
 to make judgments about school quality. Since their adoption, such *status measures* have been the focus of persistent criticism ([Linn, 2003a](#linn2003a); 
 [Linn, Baker & Betebenner, 2002](#linnbake2002)). Though appropriate for making judgments about the achievement level of students at a school for a given year, 
@@ -574,12 +618,12 @@ In the following paragraphs student growth percentiles and percentile growth pro
 ## Student Growth Percentiles
 It is a common misconception that to quantify student progress in education, the subject matter and grades over which growth is examined must be on the same scale - referred to as a vertical scale. Not only is a vertical scale not necessary, but its existence obscures concepts necessary to fully understand student growth. Growth, fundamentally, requires change to be examined for a single construct like math achievement across time - *growth in what?*.
 
-Consider the familiar situation from pediatrics where the interest is on measuring the height and weight of children over time. The scales on which height and weight are measured possess properties that educational assessment scales aspire towards but can never meet.[<sup><script type="text/javascript"> document.write(noteNum++)</script></sup>](#footnotes)
+Consider the familiar situation from pediatrics where the interest is on measuring the height and weight of children over time. The scales on which height and weight are measured possess properties that educational assessment scales aspire towards but can never meet.[$^4$](#footnotes)
 
 >An infant male toddler is measured at 2 and 3 years of age and is shown to have grown 4 inches.  The magnitude of increase - 4 inches - is a well understood quantity that any parent can grasp and measure at home using a simple yardstick. However, parents leaving their pediatrician's office knowing only how much their child has grown would likely be wanting for more information. In this situation, parents are not interested in an absolute criterion of growth, but instead in a normative criterion locating that 4 inch increase alongside the height increases of similar children. Examining this height increase relative to the increases of similar children permits one to diagnose how (a)typical such an increase is.
 
 Given this reality in the examination of change where scales of measurement are perfect, we argue that it is absurd to think that in education, where scales are at best 
-quasi-interval ([Lord, 1975](#lord1975); [Yen, 1986](#yen1986)) one can/should examine growth differently.[<sup><script type="text/javascript"> document.write(noteNum++)</script></sup>](#footnotes)
+quasi-interval ([Lord, 1975](#lord1975); [Yen, 1986](#yen1986)) one can/should examine growth differently.
 
 Going further, suppose that scales did exist in education similar to height/weight scales that permitted the calculation of absolute measures of annual academic growth for students. The response to a parent's question such as, "How much did my child progress?", would be a number of scale score points - an answer that would leave most parents confused wondering
 whether the number of points is good or bad. As in pediatrics, the search for a description regarding changes in achievement over time (i.e., growth) is best served by considering a norm-referenced quantification of student growth - *a student growth percentile*  ([Betebenner, 2008](#betebenner2008); [Betebenner, 2009](#betebenner2009)).
@@ -604,7 +648,7 @@ The four panels of Figure 1. depict what a student growth percentile represents 
 	</div>
 </div>
 
-[Figure <script> document.write(bidensityFig) </script>](#bidensity) also serves to illustrate the relationship between the state's assessment scale and student growth percentiles. The scale used by Washington depicted in the panels of Figure 1 is not vertical. Thus the comparisons or subtraction of scale scores for individual students is not supported. However, were such a scale in place, the figure would not change. With or without a vertical scale, the conditional distribution can be constructed. In situations where a vertical scale exists, the increase/decrease in scale score points can be calculated and the growth percentile can be understood alongside this change. For example, were the scales presented in [Figure 1](#bidensity) vertical, then one can calculate that the student grew 40 points (from 460 to 500) between 2011 and 2012. This 40 points represents the absolute magnitude of change. Quantifying the magnitude of change is scale dependent. For example, different vertical achievement scales in 2011 and 2012 would yield different annual scale score increases: A scale score increase of 40 could be changed to a scale score increase of 10 using a simple transformation of the vertical scale on which all the students are measured. However, relative to other students, their growth has not changed - their growth percentile is invariant to scale transformations common in educational assessment.  Student growth percentiles normatively situate achievement change bypassing questions associated with the magnitude of change, and directing attention toward relative standing which, we would assert, is what stakeholders are most interested in. 
+[Figure <script> document.write(bidensityFig) </script>](#bidensity) also serves to illustrate the relationship between the state's assessment scale and student growth percentiles. The scale used by Washington depicted in the panels of Figure 1 is not vertical. Thus the comparisons or subtraction of scale scores for individual students is not supported. However, were such a scale in place, the figure would not change. With or without a vertical scale, the conditional distribution can be constructed. In situations where a vertical scale exists, the increase/decrease in scale score points can be calculated and the growth percentile can be understood alongside this change. For example, were the scales presented in [Figure <script> document.write(bidensityFig) </script>](#bidensity) vertical, then one can calculate that the student grew 40 points (from 460 to 500) between 2011 and 2012. This 40 points represents the absolute magnitude of change. Quantifying the magnitude of change is scale dependent. For example, different vertical achievement scales in 2011 and 2012 would yield different annual scale score increases: A scale score increase of 40 could be changed to a scale score increase of 10 using a simple transformation of the vertical scale on which all the students are measured. However, relative to other students, their growth has not changed - their growth percentile is invariant to scale transformations common in educational assessment.  Student growth percentiles normatively situate achievement change bypassing questions associated with the magnitude of change, and directing attention toward relative standing which, we would assert, is what stakeholders are most interested in. 
 
 To fully understand how many states intend to use growth percentiles to make determinations about whether a student's growth is sufficient, the next section details specifics of how student growth percentiles are calculated. These calculations are subsequently used to calculate percentile growth projections/trajectories that are used to establish how much growth it will take for each student to reach his/her achievement targets. 
 
@@ -612,7 +656,7 @@ To fully understand how many states intend to use growth percentiles to make det
 Quantile regression is used to establish curvi-linear functional relationships between the cohort's prior scores and the cohort's current scores. 
 Specifically, for each grade by subject cohort, quantile regression is used to establish 100 (1 for each percentile) curvi-linear functional 
 relationships between the students prior score(s) and their current score.  For example, consider 7th graders in 2013.  Their grade 3, grade 4, grade 5, 
-and grade 6 prior scores are used to describe the current year grade 7 score distribution.[<sup><script type="text/javascript"> document.write(noteNum++)</script></sup>](#footnotes)
+and grade 6 prior scores are used to describe the current year grade 7 score distribution.[$^5$](#footnotes)
 The result of these 100 separate analyses is a single coefficient matrix that can be employed as a look-up table relating prior student achievement to 
 current achievement for each percentile. Using the coefficient matrix, one can plug in *any* grade 3, 4, 5, and 6 prior score combination to the functional 
 relationship to get the percentile cutpoints for grade 7 conditional achievement distribution associated with that prior score combination. These cutpoints 
@@ -620,7 +664,7 @@ are the percentiles of the conditional distribution associated with the individu
 
 <script type="text/javascript"> var scalescores = tableNum++; </script>
 <table class='gmisc_table' style='border-collapse: collapse;'  id='table_7'>
-	<caption align='top'>
+	<caption align='top' style='text-align: left;'>
 	Table 7: Scale scores for a hypothetical student across 5 years in reading.</caption>
 	<thead>
 	<tr>
@@ -662,7 +706,7 @@ percentile cutpoints associated with the grade 7 conditional distribution for th
 
 <script type="text/javascript"> var percentilecuts = tableNum++; </script>
 <table class='gmisc_table' style='border-collapse: collapse;'  id='table_8'>
-	<caption align='top'>
+	<caption align='top' style='text-align: left;'>
 	Table 8: Percentile cutscores for grade 7 reading based upon the grade 3, 4, 5, and 6 reading scale scores given in Table <script> document.write(scalescores); </script>.</caption>
 	<thead>
 	<tr>
@@ -720,7 +764,6 @@ the lowest proficient scale score for 7<sup>th</sup> grade reading, this target 
 percentile analysis, this one year target corresponds to 95<sup>th</sup> percentile growth. Their growth, obviously, is less than this and the student has not met 
 this individualized growth standard. 
 
-
 ## Percentile Growth Projections/Trajectories <a id="percentile-growth-projections">
 Building upon the example just presented involving only a one-year achievement target translated into a growth standard, this section extends this 
 basic idea and shows how multi-year growth standards are established based upon official state achievement targets/goals. That is, by defining a 
@@ -731,69 +774,68 @@ ability to stipulate *both* what the growth standard is as well as how much the 
 ## Defining Adequate Growth
 
 Establishing thresholds for growth for each student that can be used to make adequacy judgments requires pre-established achievement targets and a time-frame 
-to reach the target for each student against which growth can be assessed (i.e., growth-to-standard). Washington State has determined that a timeframe of three years from the establishment of the target is useful for purposes of describing students growth to standard.  Adequacy in many contexts has been defined as 
-*catching-up* and *keeping-up*:
+to reach the target for each student against which growth can be assessed (i.e., growth-to-standard). Washington state has determined that a timeframe of three years 
+from the establishment of the target is useful for purposes of describing students growth to standard.  Targets are initially established in the prior academic year, 
+so that in the current year a student is considered to be *catching-up* to or *keeping-up* with proficiency or some other standard (for example, *moving-up* to or 
+*staying-up* with an advanced achievement level).
 
-*  ***Catch-Up*** Those students currently not proficient are expected to reach proficient within 3 years following the establishment of the achievement target or by grade 10, whichever comes sooner.[<sup><script type="text/javascript"> document.write(noteNum++)</script></sup>](#footnotes)
-*  ***Keep-Up*** Those students currently at or above proficient are expected to remain at or above proficient in all of the 3 years following the establishment of the achievement target or by the final grade (8th in Math, 10th in Reading), whichever comes sooner.
+Specifically in the Washington context, these adequacy categories are defined as:
+
+*  ***Catch-Up*** Those students currently not proficient (from the prior spring testing) are expected to be proficient within 3 years following the establishment of the achievement target or by grade 10, whichever comes sooner.[$^6$](#footnotes)
+*  ***Keep-Up*** Those students currently at or above proficient are expected to remain at or above proficient in all of the 3 years following the establishment of the achievement target or by the final grade (8th in Mathematics, 10th in Reading), whichever comes sooner.
 *  ***Move-Up*** Those students currently proficient are expected to reach advanced within 3 years following the establishment of the achievement target or by the final grade, whichever comes sooner.
 *  ***Stay-Up*** Those students currently advanced and are expected to remain advanced in all of the 3 years following the establishment of the achievement target or by the final grade, whichever comes sooner.
 
 The previous definitions specify "3 years following the establishment of the achievement target" as the time frame. For example, an non-proficient 3<sup>rd</sup> grader 
-would be expected to be proficient by 6<sup>th</sup> grade, assuming a 1 grade/year progression. The first check of the student's progress occurs in 4<sup>th</sup> grade, 
+would be expected to be proficient by 6<sup>th</sup> grade. The first check of the student's progress occurs in 4<sup>th</sup> grade, 
 when the student's growth over the last year is compared against targets calculated to assess their progress along a multi-year time-line. The question asked following 
 the 4<sup>th</sup> grade for the student is: Did the student become proficient and if not are they on track to become proficient within 3 years?
 
-It is important to note that Washington State is not incorporating adequate growth in any accountability measures at this time; these targets and are provided as an additional descriptive measure to assist in school improvement. 
+***It is important to note that Washington State is not incorporating adequate growth in any accountability measures at this time; these targets and are provided as an additional descriptive measure to assist in school improvement.***
 
 ## Calculation of Growth Percentile Targets <a id="calculation-of-growth-targets">
 
 As mentioned previously, the calculation of student growth percentiles across all grades and students results in the creation of numerous coefficient matrices that relate 
 prior with current student achievement. These matrices constitute an annually updated statewide historical record of student progress. For the SGP Methodology, they are 
 used to determine what level of percentile growth is necessary for each student to reach future achievement targets. For example, in the calculation of student growth 
-percentiles in 2013 in Washington, the following coefficient matrices are produced:[<sup><script type="text/javascript"> document.write(noteNum++)</script></sup>](#footnotes)
+percentiles in 2013 in Washington, the following coefficient matrices are produced for Reading:[$^7$](#footnotes)
 
 *  **Grade 4** Using grade 3 prior achievement.
 *  **Grade 5** Using grade 4 and grades 3 & 4 prior achievement.
 *  **Grade 6** Using grade 5, grades 4 & 5, and grades 3, 4, & 5 prior achievement.
 *  **Grade 7** Using grade 6, grades 5 & 6, grades 4, 5, & 6, and grades 3, 4, 5, & 6 prior achievement.
 *  **Grade 8** Using grade 7, grades 6 & 7, grades 5, 6, & 7, grades 4, 5, 6, & 7, and grades 3, 4, 5, 6, & 7 prior achievement.
-*  **Grade 9** Using grade 8, grades 7 & 8, grades 6, 7, & 8, grades 5, 6, 7, & 8, and grades 4, 5, 6, 7, & 8 prior achievement.
-*  **Grade 10** Using grade 9, grade 8 & 9, grades 7, 8, & 9, grades 6, 7, 8, & 9, and grades 5, 6, 7, 8, & 9 prior achievement.
+*  **Grade 10** Using grade 8, grades 7 & 8, grades 6, 7, & 8, grades 5, 6, 7, & 8, grades 4, 5, 6, 7, & 8 and grades 3, 4, 5, 6, 7, & 8 prior achievement.  These include a skipped year for 9<sup>th</sup> grade. 
 
-To describe how these numerous coefficient matrices are used together to produce 1, 2, and 3 year growth targets, consider, for example, a 2013 4<sup>th</sup> grade 
-student in reading with 3<sup>rd</sup> and 4<sup>th</sup> grade state reading scores of 325 (Below Basic) and 340 (Below Basic), respectively. The following are 
-the steps that transpire over 3 years to determine whether this student is on track to reach proficient.
+To describe how these numerous coefficient matrices are used together to produce growth targets, consider, for example, a 2013 4<sup>th</sup> grade 
+student in reading with 3<sup>rd</sup> and 4<sup>th</sup> grade state reading scores of 325 (Below Basic) and 340 (Below Basic), respectively. 
+The following are the steps that transpire over 3 years to determine whether this student is on track to reach proficient.
 
-*  **Spring 2013** Accountability clock begins requiring students to reach state defined achievement targets within 4 years or by grade 8. In this example, the Below Basic 3<sup>rd</sup> grade (in 2013) student under consideration is expected to be proficient by grade 7 in 2017.
+*  **Spring 2012/Fall 2013 -** The growth target for 2013 is established requiring students to reach state defined achievement levels within 3 years or by grade 8. In this example, the student under consideration was Below Basic in 3<sup>rd</sup> grade (in 2012) and is expected to be proficient by grade 6 in 2015.
+*  **Spring 2013 -** Because our example student was not proficient based on their prior year test score her initial status for the current year is a *catching-up* student.  We want to see if the growth she demonstrated in 2013 was adequate enough to make her proficient, or at least put her on a trajectory towards proficiency within the next two years.  Employing the coefficient matrices derived in the calculation of 2013 student growth percentiles:
+    * First, the coefficient matrix relating grade 4 with grade 3 prior achievement is used to establish the percentile cuts (i.e., one-year growth percentile projections/trajectories). If the student's actual 2013 growth percentile exceeds the percentile cut associated with proficient, then the student's one year growth is enough to reach proficient.[$^8$](#footnotes) 
+    * Next, the 2 year growth percentile projections/trajectories are calculated, extending from 2012 to 2014. The student's actual grade 3 scale score together with the 99 hypothetical one-year growth percentile projections/trajectories derived in the previous step are plugged into the 2013 coefficient matrix relating grade 5 with grade 3 & 4 prior achievement. This yields the percentile cuts for the student indicating what consecutive two-year 1<sup>st</sup> through 99<sup>th</sup> percentile growth will lead to.[$^9$](#footnotes) The student's 2013 growth percentile is compared to the 2 year growth percentile cut required to reach proficiency. If the student's growth percentile exceeds this target, then the student is deemed on track to reach proficiency by the 5<sup>th</sup> grade.
+    * Last, the 3 year growth percentile projections/trajectories are established. The student's actual grade 3 scale score together with the 99 hypothetical 1 and 2 year growth percentile projections/trajectories derived in the previous two steps are plugged into the coefficient matrix relating grade 6 with prior achievement in grades 3, 4, & 5. This yields the percentile cuts for each student indicating what three consecutive years of 1<sup>st</sup> through 99<sup>th</sup> percentile growth will lead to in terms of future achievement.  The student's observed 2013 growth percentile is again compared to the percentile cut required to reach proficiency, and if it meets or exceeds it her growth is deemed adequate enough to reach proficiency by the 6<sup>th</sup> grade. 
+*  **Spring 2013/Fall 2014 -** The growth target for 2014 is now established. The student in this example has now presumably completed grade 4 and beginning grade 5 in the Fall.  She was again Below Basic in 4<sup>th</sup> grade and is now expected to be on track to proficient by grade 7 in 2016.
+*  **Spring 2014 -** Employing the coefficient matrices derived in the calculation of 2014 student growth percentiles:
+    * First the coefficient matrix relating grade 5 with grade 3 & 4 prior achievement is used to establish 99 percentile cuts (i.e., one-year growth percentile projections/trajectories). If the student's actual 2014 growth percentile exceeds the cut associated with proficient, then the student's one year growth was enough to reach proficient. 
+    * Next, the student's actual scores from grades 3 & 4 together with the 99 hypothetical one-year growth percentile projections/trajectories derived in the previous step are plugged into the coefficient matrix relating grade 6 with grade 3, 4, & 5 prior achievement. This yields 99 percentile cuts (i.e., 2 year growth percentile projections/trajectories) for the student indicating what consecutive two-year 1<sup>st</sup> through 99<sup>th</sup> percentile growth will lead to in terms of future achievement. The student's 2014 growth percentile is compared to the 2 year growth percentile cut required to reach proficiency. If the student's growth percentile meets or exceeds it then the student is deemed on track to reach proficient.
+    * Last, the 3 year growth percentile projections/trajectories are established. The student's actual grades 3 & 4 scale scores together with the 99 hypothetical 1 and 2 year growth percentile projections/trajectories derived in the previous two steps are plugged into the coefficient matrix relating grade 7 with prior achievement in grades 3, 4, 5 & 6. This yields the percentile cuts for each student indicating what three consecutive years of 1<sup>st</sup> through 99<sup>th</sup> percentile growth will lead to in terms of future achievement.  The student's observed 2014 growth percentile is again compared to the percentile cut required to reach proficiency, and if it exceeds it her growth is deemed adequate enough to reach proficiency by the 7<sup>th</sup> grade. 
 
-*  **Spring 2014** Employing the coefficient matrices derived in the calculation of 2014 student growth percentiles:
-    * First, the coefficient matrix relating grade 4 with grade 3 prior achievement is used to establish the percentile cuts (i.e., one-year growth percentile  projections/trajectories). If the student's actual 2014 growth percentile exceeds the percentile cut associated with proficient, then the student's one year growth is enough to reach proficient.[$^6$](#footnotes) If the student reaches his/her achievement goal, then the accountability clock is reset for this student, with a new achievement goal of remaining proficient for the next 4 years. 
-    * Next, the 2 (consecutive) year growth percentile projections/trajectories are calculated, extending from 2013 to 2015. The student's actual grade 3 scale score together with the 99 hypothetical one-year growth percentile projections/trajectories derived in the previous step are plugged into the most recently derived coefficient matrix relating grade 5 with grade 3 & 4 prior achievement. This yields the percentile cuts (i.e., 2 year growth percentile projections/trajectories) for the student indicating what consecutive two-year 1<sup>st</sup> through 99<sup>th</sup> percentile growth (based upon the most recent student growth histories in the state) will lead to. Using the August 2013 achievement targets (proficient by 7<sup>th</sup> grade, for this student), 2 year growth sufficient to reach the target is determined and the student's growth percentile is compared to this target. If the student's growth percentile exceeds this target, then the student is deemed on track to reach proficient.
-    * Next, the 3 year growth percentile projections/trajectories are established. The student's actual grade 3 scale score together with the 99 hypothetical 1 and 2 year growth percentile projections/trajectories derived in the previous step are plugged into the coefficient matrix relating grade 6 with grade 3, 4, & 5 prior achievement. This yields the percentile cuts (i.e., 3 year growth percentile projections/trajectories) for each student indicating what consecutive three-year 1<sup>st</sup> through 99<sup>th</sup> percentile growth (based upon the most recent student growth histories in the state) will lead to in terms of future achievement. Using the August 2013 achievement targets (proficient by 7<sup>th</sup> grade, for this student), 3 year growth sufficient to reach the target is determined and the student's growth percentile is compared to this target. If the student's growth percentile exceeds this target then the student is deemed on track to reach proficient. 
-    * Last, the 4 year growth percentiles projections/trajectories are established. The student's actual grade 3 scale score together with the 99 hypothetical 1, 2, and 3 year growth percentile projections/trajectories derived in the previous step are plugged into the coefficient matrix relating grade 7 with grade 3, 4, 5, & 6 prior achievement. This yields the percentile cuts (i.e., 4 year growth percentile projections/trajectories) for each student indicating what consecutive four-year 1<sup>st</sup> through 99<sup>th</sup> percentile growth (based upon the most recent student growth histories in the state) will lead to in terms of future achievement. Using the August 2013 achievement targets (proficient by 7<sup>th</sup> grade for this student), 4 year growth sufficient to reach the target is determined and the student's growth percentile is compared to this target. If the student's growth percentile exceeds this target then the student is deemed on track to reach proficient. 
+This process repeats in a similar fashion as the student progresses from one grade to the next, year after year.  The complexity of the process just described is minimized by the use of the 
+`R` software environment [(R Core Team, 2013)](#rsoftware2013) in conjunction with an open source software package `SGP` [(Betebenner, VanIwaarden, Domingue & Shang, 2013)](sgp2013) developed 
+by the National Center for the Improvement of Educational Assessment in consultation with the Washington State Office of Superintendent of Public Instruction (OSPI) to calculate student growth 
+percentiles and percentile growth projections/trajectories. Every year, following the completion of the WCAP score reconciliation, student growth percentiles and percentile growth 
+trajectories are calculated for each student. Once calculated, these values are easily used to make the yes/no determinations about the adequacy of each student's growth relative to 
+his/her fixed achievement targets.
 
-*  **Spring 2015** Employing the coefficient matrices derived in the calculation of 2015 student growth percentiles:
-    * First, with the student now presumably completing grade 5, the coefficient matrix relating grade 5 with grade 3 & 4 prior achievement is used to establish 99 percentile cuts (i.e., one-year growth percentile projections/trajectories). If the student's actual 2015 growth percentile exceeds the cut associated with proficient, then the student's one year growth was enough to reach proficient.[$^7$](#footnotes) If the student reaches his/her achievement goal, then the accountability clock is reset for this student, with a new achievement goal of remaining proficient for the next 4 years. 
-    * Next, the student's grade 3 & 4 actual scores together with the 99 hypothetical one-year growth percentile projections/trajectories derived in the previous step are plugged into the coefficient matrix relating grade 6 with grade 3, 4, & 5 prior achievement. This yields 99 percentile cuts (i.e., 2 year growth percentile projections/trajectories) for the student indicating what consecutive two-year 1<sup>st</sup> through 99<sup>th</sup> percentile growth (based upon the most recent student growth histories in the state) will lead to in terms of future achievement. Using the August 2013 accountability achievement targets (proficient by 7<sup>th</sup> grade for this student), 2 year growth sufficient to reach the target is determined and the student's growth percentile is compared to this target. If the student's growth percentile exceeds this target then the student is deemed on track to reach proficient.
-    * Finally, the student's grade 3 & 4 actual scores together with the 99 hypothetical 1 & 2 year growth percentile projections/trajectories derived in the previous steps are plugged into the coefficient matrix relating grade 7 with grade 3, 4, 5, & 6 prior achievement. This yields 99 percentile cuts (i.e., 3 year growth percentile projections/trajectories) for the student indicating what consecutive three-year 1<sup>st</sup> through 99<sup>th</sup> percentile growth (based upon the most recent student growth histories in the state) will lead to in terms of future achievement. Using the August 2013 accountability achievement targets (proficient by 7<sup>th</sup> grade for this student), 3 year growth sufficient to reach the target is determined and the student growth percentile is compared to this target. If the student's growth percentile exceeds this target then the student is deemed on track to reach proficient.
-    * No 4 year targets are utilized because they exceed the time-frame initially established for the student to reach proficient.
+### Special Considerations for Washington
+As noted above, there is no reading test administered in the 9<sup>th</sup> grade, and the 10<sup>th</sup> grade analyses incorporate this skipped year in the production of student growth percentiles and associated coefficient matrices.  This gap, in combination with the 2-year growth target, means that 7<sup>th</sup> grade growth targets have a single year horizon (2 years out would be their 9th grade year).  Similarly, 8<sup>th</sup> grade targets rely on a single year projection as are projected over the 9<sup>th</sup> grade gap using the coefficient matrix relating grade 10 with grades 3 through 8 prior achievement.  This, like other terminal grade projections, is equivalent to just checking whether the student reached proficient in the current year.
 
-*  **Spring 2016** Employing the coefficient matrices derived in the calculation of 2016 student growth percentiles:
-    * First, with the student now presumably completing grade 6, the coefficient matrix relating grade 6 with grade 3, 4, & 5 prior achievement is used to establish 99 percentile cuts (i.e., one-year growth percentile projections/trajectories). If the student's actual 2012 growth percentile exceeds the cut associated with proficient, then the student's one year growth was enough to reach proficient.[$^8$](#footnotes) If the student reaches his/her achievement goal, then the accountability clock is reset for this student, with a new achievement goal of remaining proficient for the next 4 years. 
-    * Next, the student's grade 3, 4, & 5 actual scores together with the 99 hypothetical one-year growth percentile projections/trajectories derived in the previous step are plugged into the coefficient matrix relating grade 7 with grade 3, 4, 5, & 6 prior achievement. This yields 99 percentile cuts (i.e., 2 year growth percentile projections/trajectories) for the student indicating what consecutive two-year 1<sup>st</sup> through 99<sup>th</sup> percentile growth (based upon the most recent student growth histories in the state) will lead to in terms of future achievement. Using the August 2013 accountability achievement targets (proficient by 7<sup>th</sup> grade for this student), 2 year growth sufficient to reach the target is determined and the student's growth percentile is compared to this target. If the student's growth percentile exceeds this target then the student is deemed on track to reach proficient.
-    * No 3 or 4 year targets are utilized because they exceed the time-frame initially established for the student to reach proficient.
+Currently growth projections and adequate growth analyses have not be conducted for the EOC Mathematics courses.  However, the ability to produce them using the `SGP` package is currently under development and Washington may pursue their production and use in the future.
 
-*  ** Spring 2017** Employing the coefficient matrices derived in the calculation of 2017 student growth percentiles:
-    * Because 2017 is the terminal year of the 4 year time frame established for the student to reach proficient the student is deemed to have grown sufficiently if they have reached proficient. 
-    * No 2, 3, or 4 year targets are utilized because they exceed the accountability time-frame initially established for the student to reach proficient.
-
-The complexity of the process just described is minimized by the use of the `R` software environment in conjunction with an open source software 
-package `SGP` [(Betebenner, VanIwaarden, Domingue & Shang, 2013)](sgp2013) developed by the National Center for the Improvement of Educational Assessment in consultation with the Washington State 
-Office of Superintendent of Public Instruction (OSPI) to calculate student growth percentiles and percentile growth projections/trajectories 
-[(R Core Team, 2013)](#rsoftware2013). Every year, following the completion of the WCAP score reconciliation, 
-student growth percentiles and percentile growth trajectories are calculated for each student. Once calculated, these values are easily used to make the 
-yes/no determinations about the adequacy of each student's growth relative to his/her fixed achievement targets. 
+### Changes in Assessment Programs
+Many states will soon switch from their current assessment programs to one of the assessments aligned to the Common Core State Standards (CCSS), such as Smarter Balanced Assessment Consortium's (SBAC) tests. This change will have a significant impact on the ability to produce growth projections and make judgments about growth adequacy.  Although cohort referenced SGPs would still be produced (conditioning on the WCAP assessment program test scores), growth projections/targets would not be available in the first year after a switch.  In the second year, one year growth projections could be produced, two year projections the year after that and so on.
 
 ## System-wide Growth and Achievement Charts <a id="growth-and-achievement-charts">
 Operational work calculating student growth percentiles with state assessment data yields a large number of coefficient matrices derived 
@@ -1147,38 +1189,16 @@ built upon mean based regression methods are, to an extent, scale dependent.
 	</div>
 </div>
 
-# Appendix C - State-Level Bubble Plots
-
-## Grade-Level Reading
-
-<script type="text/javascript"> var bubble_read_prior = figNum++; </script>
-<div class='content-node image' id='bubble_read_prior'>
-	<div class='caption'>School-level Bubble Plots for Washington State:  Reading, 2012-2013.</div>
-	<div class='image-content'>    
-		<img src="img/Bubble_Plots/2013/Washington_2012_2013_Reading_State_Bubble_Plot_(Prior_Achievement).png" alt="bubble_read_prior" style="width: 850px; padding: 10px;"/>
-	</div>
-</div>
-
-## Grade-Level Mathematics
-
-<script type="text/javascript"> var bubble_math_prior = figNum++; </script>
-<div class='content-node image' id='bubble_math_prior'>
-	<div class='caption'>School-level Bubble Plots for Washington State:  Mathematics, 2012-2013.</div>
-	<div class='image-content'>    
-		<img src="img/Bubble_Plots/2013/Washington_2012_2013_Mathematics_State_Bubble_Plot_(Prior_Achievement).png" alt="bubble_math_prior" style="width: 850px; padding: 10px;"/>
-	</div>
-</div>
-
 # Footnotes
-1. Height and weight scales are interval (actually, ratio scales) where a unit increase reflects an equivalent increase in the underlying quality being measured no matter where on the scale the increase occurs.
-2. The scales on which students are measured are often assumed to possess properties similar to height and weight but they don't. Specifically, scales are assumed to be interval where it is assumed that a difference of 100 points at the lower end of the scale refers to the same difference in ability/achievement as 100 points at the upper end of the scale. See [Lord (1975)](#lord1975) and [Yen (1986)](#yen1986) for more detail on the interval scaling in educational measurement.
-3. For the mathematical details underlying the use of quantile regression in calculating student growth percentiles, see the Appendix [*Student Growth Percentile Estimation*](#appendix-a---sgp-estimation). 
-4. The time frame of 4 years following the establishment of the achievement target is equivalent to within 3 years of when the first growth adequacy judgment is established for the student.
-5. Note that because testing began in 2006 in Washington, in 2008 there is a maximum number of 2 consecutive prior achievement scores.
-6. Checking growth adequacy using one-year achievement targets is equivalent to confirming whether the student reached his/her  one-year achievement target since the coefficient matrices used to produce the percentile cuts are based on current data.
-7. Note, this is equivalent to just checking whether the student reached proficient in 2011 since the coefficient matrices used to produce the 99 percentile cuts are based on 2011 data.
-8. Note, this is equivalent to just checking whether the student reached proficient in 2012 since the coefficient matrices used to produce the 99 percentile cuts are based on 2012 data.
-9. This number does not represent the number of SGPs produced, however, because students are required to have at least one prior score available as well.
+1. This number does not represent the number of SGPs produced, however, because students are required to have at least one prior score available as well.
+2. In addition to providing information about model fit, these student-level correlations can assess potential impact of test ceiling effects.
+3. Percent Prior Proficient in this case is determined by the percent of student's that scored in the Proficient or Advanced range, of all student's that received a score.  This measure does not reflect student's that did not receive a score but are included in the denominator of Percent Meeting Standard as displayed in the OSPI Washington Report Card.
+4. The scales on which students are measured are often assumed to possess properties similar to height and weight but they don't. Specifically, scales are assumed to be interval where it is assumed that a difference of 100 points at the lower end of the scale refers to the same difference in ability/achievement as 100 points at the upper end of the scale. See [Lord (1975)](#lord1975) and [Yen (1986)](#yen1986) for more detail on the interval scaling in educational measurement.
+5. For the mathematical details underlying the use of quantile regression in calculating student growth percentiles, see the [Appendix *Student Growth Percentile Estimation*](#appendix-a---sgp-estimation). 
+6. The establishment of the achievement target occurs in the year prior, therefore the time frame of 3 years includes the current year as "year 1", which is the year in which the first growth adequacy judgment can be made for the student.  The targets are then projected out two years beyond the current year to give a maximum time horizon of 3 years in which to make the adequacy judgement.
+7. Note that because testing began in 2006 in Washington, in 2008 there is a maximum number of 2 consecutive prior achievement scores.
+8. Checking growth adequacy using one-year achievement targets is equivalent to confirming whether the student reached his/her one-year achievement target since the coefficient matrices used to produce the percentile cuts are based on current data.
+9. Two or more year growth targets are estimated based upon the most recent student growth histories in the state.  In this example, estimates for growth that will be needed in the 5th and 6th grades are based on students in 5th and 6th grades (concurrently) in 2013.
 10. For a detailed treatment of the procedures involved in solving the optimization problem associated with Expression \ref{eqn:quantmin}, see [(Koenker, 2005)](#koenker2005), particularly Chapter 6.
 11. As already noted with regard to pediatrics, the existence of nice "vertical" scales for measuring height and weight still leads to observed changes being normed.
 

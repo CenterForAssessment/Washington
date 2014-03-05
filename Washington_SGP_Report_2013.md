@@ -763,8 +763,8 @@ ability to stipulate *both* what the growth standard is as well as how much the 
 Establishing thresholds for growth for each student that can be used to make adequacy judgments requires pre-established achievement targets and a time-frame 
 to reach the target for each student against which growth can be assessed (i.e., growth-to-standard). Washington state has determined that a timeframe of three years 
 from the establishment of the target is useful for purposes of describing students growth to standard.  Targets are initially established in the prior academic year, 
-so that in the current year a student is considered to be *catching-up* to or *keeping-up* with proficiency or some other standard (for example, *moving-up* to or 
-*staying-up* with an advanced achievement level).
+so that in the current year a student is considered to be *catching-up* to or *keeping-up* with proficiency.  Other targets may also be considered (for example,
+*moving-up* to or *staying-up* with an advanced achievement level).
 
 Specifically in the Washington context, these adequacy categories are defined as:
 
@@ -778,7 +778,7 @@ would be expected to be proficient by 6<sup>th</sup> grade. The first check of t
 when the student's growth over the last year is compared against targets calculated to assess their progress along a multi-year time-line. The question asked following 
 the 4<sup>th</sup> grade for the student is: Did the student become proficient and if not are they on track to become proficient within 3 years?
 
-***It is important to note that Washington State is not incorporating adequate growth in any accountability measures at this time; these targets and are provided as an additional descriptive measure to assist in school improvement.***
+***It is important to note that Washington State is not incorporating adequate growth in any accountability measures at this time; these targets are provided as an additional descriptive measure to assist in school improvement.***
 
 ## Calculation of Growth Percentile Targets <a id="calculation-of-growth-targets">
 

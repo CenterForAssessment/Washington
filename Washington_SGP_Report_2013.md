@@ -23,21 +23,6 @@ contents:
   - section: References
 ---
 
-<!-- 
-This document was written by Damian Betebenner & Adam VanIwaarden for the State of Washington Office of Superintendent of Public Instruction (OSPI).
-
-	Original Draft:  November 22, 2013
-	Edited (AVI):  December 1, 2013
-	Edited (DWB):  December 3, 2013
-	Edited (AVI):  January 21, 2014
-	...
--->
-
-<!-- load some R packages and functions required for HTML table creation silently .  Load SGP here to avoid messages, but do it again in the body as example -->
-
-
-
-
 # Introduction
 
 This report contains details on the implementation of the student growth percentiles (SGP) for the state of Washington. The National Center for the Improvement of Educational

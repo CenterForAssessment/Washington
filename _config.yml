@@ -144,9 +144,6 @@ navbar:
         label: Annual Analysis Reports
         submenu: 
           - 
-            label: School Year 2011-12
-            link: An_Example_Github_Pages_Document.html
-          - 
             label: School Year 2012-13
             link: Washington_SGP_Report_2013.html
       - 
@@ -209,7 +206,7 @@ footer_social:
     link: http://twitter.com/DBetebenner
     image: images/social-icon/twitter.png
 
-copyright: "Copyright© 2014 National Center for the Improvement of Educational Assessment. All rights reserved. This site is powered by Jekyll and hosted on GitHub Pages using the CFA theme for Jekyll Bootstrap."
+copyright: "Copyright© 2013 National Center for the Improvement of Educational Assessment. All rights reserved. This site is powered by Jekyll and hosted on GitHub Pages using the CFA theme for Jekyll Bootstrap."
 
   # Settings for all other include helpers can be defined by creating 
   # a hash with key named for the given helper. ex:

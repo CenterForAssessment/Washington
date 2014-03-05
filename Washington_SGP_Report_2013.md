@@ -16,7 +16,7 @@ contents:
   - section: Goodness of Fit
     subsections: [Student Level Results, Group Level Results]
   - section: Appendix A - The SGP Methodology
-    subsections: [Why Student Growth?, Student Growth Percentiles, Student Growth Percentile Calculation, Percentile Growth Projections, Defining Adequate Growth, Calculation of Growth Targets, Growth and Achievement Charts, Discussion of Model Properties]
+    subsections: ["Why Student Growth?", Student Growth Percentiles, Student Growth Percentile Calculation, Percentile Growth Projections, Defining Adequate Growth, Calculation of Growth Targets, Growth and Achievement Charts, Discussion of Model Properties]
   - section: Appendix B - Model Fit Plots
     subsections: [Grade-Level Reading, Grade-Level Mathematics, EOC Mathematics 1, EOC Mathematics 2]
   - section: Footnotes

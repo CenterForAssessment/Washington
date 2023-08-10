@@ -28,7 +28,7 @@ parallel.config <- NULL
 ###   Run abcSGP analysis
 #####
 
-Washington_SGP <- updateSGP(
+Washington_SGP <- abcSGP(
         sgp_object = Washington_Data_LONG,
         steps = c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
         sgp.config = WA_CONFIG,

@@ -1,6 +1,6 @@
 ###########################################################
 ###
-### Washington 2022-2023 SGP Analysis
+### Washington 2023-2024 SGP Analysis
 ###
 ###########################################################
 
@@ -8,28 +8,27 @@
 require(SGP)
 require(SGPmatrices)
 
-### Load SGP object created from 2018-2019 analyses and data (contains 2021-2022, 2022-2023 data sets in mathematics and reading in LONG format)
+### Load SGP object created from 2022-2023 analyses and data (contains 2023-2024 data sets in mathematics and reading in LONG format)
 load("Data/Washington_SGP.Rdata")
-load("Data/Washington_Data_LONG_2021_2022_and_2022_2023.Rdata") 
+load("Data/Washington_Data_LONG_2023_2024.Rdata") 
 
 ### Add matrices to SGPstateData
-SGPstateData <- SGPmatrices::addBaselineMatrices("WA", "2022_2023") 
+SGPstateData <- SGPmatrices::addBaselineMatrices("WA", "2023_2024") 
 
 ###   Read in SGP Configuration Scripts and Combine
-source("SGP_CONFIG/2022_2023/MATHEMATICS.R")
-source("SGP_CONFIG/2022_2023/READING.R")
+source("SGP_CONFIG/2023_2024/MATHEMATICS.R")
+source("SGP_CONFIG/2023_2024/READING.R")
 
 WA_Config <- c(
-	MATHEMATICS_2022_2023.config,
-	READING_2022_2023.config	
+	MATHEMATICS_2023_2024.config,
+	READING_2023_2024.config	
 )
 
 ### Calculate SGPs
 Washington_SGP <- updateSGP(
 		what_sgp_object=Washington_SGP,
-		with_sgp_data_LONG=Washington_Data_LONG_2021_2022_and_2022_2023,
+		with_sgp_data_LONG=Washington_Data_LONG_2023_2024,
 		state="WA",
-		years="2022_2023",
 		steps=c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
 		sgp.percentiles=TRUE,
 		sgp.projections=FALSE,

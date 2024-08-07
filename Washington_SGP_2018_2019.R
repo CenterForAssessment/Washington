@@ -40,4 +40,4 @@ Washington_SGP <- abcSGP(
 
 
 ### Save results
-save(Washington_SGP, file="Data/Washington_SGP.Rdata")
+#save(Washington_SGP, file="Data/Washington_SGP.Rdata")
